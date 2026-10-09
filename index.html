@@ -3,58 +3,415 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plumber KL & Selangor | Paip Bocor tandas & Waterproofing</title>
-<meta name="description" content="Servis plumber KL & Selangor. Baiki paip bocor, tandas, sink, tangki air, bumbung bocor dan waterproofing. Call atau WhatsApp sekarang.">
+
+<title>Plumber KL & Selangor | Baiki Paip dan Renovasi</title>
+
+<meta name="description" content="Servis plumber dan pembaikan rumah di Kuala Lumpur dan Selangor. Baiki paip bocor, tandas, tangki air, bumbung bocor dan waterproofing. Hubungi kami melalui WhatsApp.">
+
 <style>
-body{font-family:Arial,sans-serif;margin:0;background:#f5f7fa;color:#222}
-header{background:#123b5d;color:white;text-align:center;padding:42px 20px}
-h1{font-size:36px;margin:0 0 10px} h2{color:#123b5d}
-.container{max-width:900px;margin:auto;padding:25px 18px}
-.card{background:white;padding:24px;margin:18px 0;border-radius:14px;box-shadow:0 2px 10px #0001}
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.service{padding:16px;background:#eef5fa;border-radius:10px}
-.button{display:inline-block;padding:15px 22px;margin:7px;border-radius:9px;text-decoration:none;font-weight:bold}
-.whatsapp{background:#20b957;color:white}.call{background:#123b5d;color:white}
-footer{text-align:center;padding:25px;background:#123b5d;color:white}
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f0f8ff;
+  color: #26384a;
+  line-height: 1.7;
+}
+
+header {
+  background: #154f7c;
+  color: white;
+  padding: 18px 20px;
+}
+
+.nav {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.logo {
+  font-size: 19px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.logo small {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 14px;
+}
+
+.hero {
+  background: linear-gradient(135deg, #e5f4ff, #ffffff);
+  padding: 55px 22px;
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.label {
+  display: inline-block;
+  border: 1px solid #b8d7eb;
+  background: white;
+  color: #154f7c;
+  border-radius: 30px;
+  padding: 7px 15px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+h1 {
+  color: #102f4e;
+  font-size: clamp(38px, 7vw, 66px);
+  line-height: 1.05;
+  margin: 24px 0 15px;
+}
+
+.hero h2 {
+  color: #155783;
+  font-size: 23px;
+  margin: 0 0 15px;
+}
+
+.hero p {
+  font-size: 17px;
+  max-width: 650px;
+}
+
+.tagline {
+  color: #155783;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 20px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 22px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+}
+
+.btn-primary {
+  background: #155783;
+  color: white;
+}
+
+.btn-secondary {
+  background: white;
+  color: #155783;
+  border: 1px solid #c4d9e8;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 25px;
+  font-weight: bold;
+  color: #154f7c;
+}
+
+.section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 22px;
+}
+
+.section-title {
+  text-align: center;
+  color: #154f7c;
+  font-size: 30px;
+  margin: 0 0 10px;
+}
+
+.section-desc {
+  text-align: center;
+  margin: 0 auto 28px;
+  max-width: 650px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #dfebf3;
+  border-radius: 15px;
+  padding: 23px;
+  box-shadow: 0 5px 18px rgba(20, 60, 90, 0.06);
+}
+
+.card h3 {
+  color: #154f7c;
+  margin-top: 0;
+}
+
+.icon {
+  font-size: 32px;
+}
+
+.area {
+  background: #e0f1fc;
+  text-align: center;
+  padding: 38px 20px;
+}
+
+.area p {
+  max-width: 800px;
+  margin: auto;
+}
+
+.contact {
+  background: #154f7c;
+  color: white;
+  text-align: center;
+  padding: 45px 20px;
+}
+
+.contact h2 {
+  font-size: 30px;
+}
+
+.contact .btn {
+  background: #20bf65;
+  color: white;
+  margin-top: 15px;
+}
+
+footer {
+  background: #103958;
+  color: white;
+  text-align: center;
+  padding: 22px 15px;
+  font-size: 13px;
+}
+
+@media (max-width: 650px) {
+  .menu {
+    display: none;
+  }
+
+  .hero {
+    padding: 38px 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .features {
+    gap: 12px;
+  }
+}
 </style>
 </head>
+
 <body>
+
 <header>
-<h1>🔧 PLUMBER KL & SELANGOR</h1>
-<p>Servis Plumbing, Repair & Waterproofing</p>
-<a class="button whatsapp" href="https://wa.me/601121334668?text=Salam%2C%20saya%20ingin%20tanya%20tentang%20servis%20plumber." target="_blank">📲 WhatsApp Sekarang</a>
-<a class="button call" href="tel:+601121334668">📞 Call Sekarang</a>
+  <div class="nav">
+    <div class="logo">
+      🔧 PLUMBER KL & SELANGOR
+      <small>PLUMBING & HOME REPAIR</small>
+    </div>
+
+    <nav class="menu">
+      <a href="#servis">Servis</a>
+      <a href="#kawasan">Kawasan</a>
+      <a href="#hubungi">Hubungi</a>
+    </nav>
+  </div>
 </header>
 
-<div class="container">
-<div class="card">
-<h2>Servis Kami</h2>
-<div class="services">
-<div class="service">💧 Paip Bocor</div>
-<div class="service">🚿 Sink & Tandas</div>
-<div class="service">🛢️ Tangki Air</div>
-<div class="service">🏠 Bumbung Bocor</div>
-<div class="service">🧱 Waterproofing Slab</div>
-<div class="service">🔧 Plumbing Repair & Installation</div>
-</div>
-</div>
+<section class="hero">
+  <div class="hero-inner">
 
-<div class="card">
-<h2>Kawasan Servis</h2>
-<p>Melawati • Wangsa Maju • Setapak • Gombak • Ampang • Kuala Lumpur & kawasan Selangor berdekatan.</p>
-</div>
+    <span class="label">SERVIS PAIP & PEMBAIKAN RUMAH</span>
 
-<div class="card">
-<h2>kenapa pilih kami?</h2>
-<p>berpengalaman dalam kerja plumbing dan repair rumah</p>
-<p> Respon cepat untuk masalah  dan kebocoran</p>
-<p>harga berpatutan & kerja </p>
-<p>mudah melalui whatsap atau call</p>
-</div>
-</div>
+    <h1>PLUMBER<br>KL & SELANGOR</h1>
+
+    <h2>Servis Paip, Waterproofing & Renovasi Rumah</h2>
+
+    <p class="tagline">
+      Masalah rumah? Kami sedia membantu!
+    </p>
+
+    <p>
+      Kami menyediakan perkhidmatan pembaikan paip dan rumah
+      untuk pelanggan di Kuala Lumpur dan Selangor.
+      Hubungi kami untuk pertanyaan dan sebut harga.
+    </p>
+
+    <div class="features">
+      <span>⚡ Respon Pantas</span>
+      <span>🛠️ Kerja Kemas</span>
+      <span>🤝 Mesra Pelanggan</span>
+    </div>
+
+    <div class="buttons">
+      <a class="btn btn-primary"
+         href="https://wa.me/601121334668?text=Salam%2C%20saya%20ingin%20bertanya%20tentang%20servis%20plumber."
+         target="_blank">
+        💬 WhatsApp Sekarang
+      </a>
+
+      <a class="btn btn-secondary" href="#servis">
+        Lihat Perkhidmatan ↓
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="servis">
+
+  <h2 class="section-title">Perkhidmatan Kami</h2>
+
+  <p class="section-desc">
+    Pelbagai kerja pembaikan rumah untuk membantu mengatasi
+    masalah paip, kebocoran dan kerosakan.
+  </p>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="icon">💧</div>
+      <h3>Baiki Paip Bocor</h3>
+      <p>Pemeriksaan, pembaikan dan pemasangan paip air.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🚿</div>
+      <h3>Sink & Tandas</h3>
+      <p>Pembaikan sink, mangkuk tandas dan kelengkapan bilik air.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🚰</div>
+      <h3>Tangki & Pam Air</h3>
+      <p>Pemeriksaan dan pembaikan masalah tangki serta pam air.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🏠</div>
+      <h3>Bumbung Bocor</h3>
+      <p>Pemeriksaan dan pembaikan kebocoran bumbung rumah.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🧱</div>
+      <h3>Waterproofing</h3>
+      <p>Kerja kalis air untuk slab dan kawasan yang mengalami kebocoran.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🔨</div>
+      <h3>Renovasi Bilik Air</h3>
+      <p>Kerja pembaikan, jubin dan pengubahsuaian bilik air.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="area" id="kawasan">
+
+  <h2 class="section-title">Kawasan Perkhidmatan</h2>
+
+  <p>
+    Ampang • Wangsa Maju • Setapak • Gombak • Kuala Lumpur
+    dan kawasan Selangor yang berdekatan.
+  </p>
+
+  <p style="margin-top:12px">
+    Hubungi kami untuk menyemak kawasan liputan dan caj perjalanan.
+  </p>
+
+</section>
+
+<section class="section">
+
+  <h2 class="section-title">Kenapa Pilih Kami?</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>🛠️ Pelbagai Kemahiran</h3>
+      <p>Servis paip dan pembaikan rumah dalam satu perkhidmatan.</p>
+    </div>
+
+    <div class="card">
+      <h3>💬 Mudah Dihubungi</h3>
+      <p>Hubungi kami terus melalui WhatsApp untuk pertanyaan.</p>
+    </div>
+
+    <div class="card">
+      <h3>📋 Sebut Harga</h3>
+      <p>Bincangkan masalah dan dapatkan anggaran harga sebelum kerja dimulakan.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="contact" id="hubungi">
+
+  <h2>Ada Masalah Paip atau Rumah?</h2>
+
+  <p>Hubungi kami untuk pertanyaan dan sebut harga.</p>
+
+  <a class="btn"
+     href="https://wa.me/601121334668?text=Salam%2C%20saya%20ingin%20bertanya%20tentang%20servis%20plumber."
+     target="_blank">
+    💬 HUBUNGI MELALUI WHATSAPP
+  </a>
+
+</section>
 
 <footer>
-© 2026 Plumber KL & Selangor • 011-2133 4668
+  <p>© 2026 Plumber KL & Selangor</p>
+  <p>Servis Paip & Pembaikan Rumah</p>
 </footer>
+
 </body>
 </html>
