@@ -450,6 +450,49 @@ Kg Klang Gates Baru • Melawati • Wangsa Maju • Setapak • Gombak • Ampa
 </section>
 
 
+<section id="booking" style="padding:24px 16px; margin:20px 0; background:#f3f8ff; border-radius:14px; color:#222;">
+  <h2 style="text-align:center;">📅 Tempahan Servis Plumber</h2>
+  <p style="text-align:center;">Pilih tarikh dan maklumat kerja. Kami akan mengesahkan tempahan melalui WhatsApp.</p>
+
+  <form onsubmit="event.preventDefault(); const f=this; const msg='BOOKING PLUMBER KL & SELANGOR%0A%0ANama: '+encodeURIComponent(f.nama.value)+'%0ATarikh pilihan: '+encodeURIComponent(f.tarikh.value)+'%0AMasa pilihan: '+encodeURIComponent(f.masa.value)+'%0AJenis kerja: '+encodeURIComponent(f.kerja.value)+'%0AAlamat: '+encodeURIComponent(f.alamat.value); window.open('https://wa.me/601121334668?text='+msg,'_blank');" style="display:grid; gap:12px;">
+    <label>Nama pelanggan
+      <input name="nama" required style="display:block;width:100%;padding:12px;margin-top:5px;box-sizing:border-box;">
+    </label>
+
+    <label>Tarikh pilihan
+      <input name="tarikh" type="date" required style="display:block;width:100%;padding:12px;margin-top:5px;box-sizing:border-box;">
+    </label>
+
+    <label>Masa pilihan
+      <select name="masa" required style="display:block;width:100%;padding:12px;margin-top:5px;box-sizing:border-box;">
+        <option value="">Pilih masa</option>
+        <option>9 pagi – 12 tengah hari</option>
+        <option>12 tengah hari – 3 petang</option>
+        <option>3 petang – 6 petang</option>
+      </select>
+    </label>
+
+    <label>Jenis kerja
+      <select name="kerja" required style="display:block;width:100%;padding:12px;margin-top:5px;box-sizing:border-box;">
+        <option value="">Pilih servis</option>
+        <option>Paip bocor</option>
+        <option>Paip atau sinki tersumbat</option>
+        <option>Baiki tandas</option>
+        <option>Tangki air</option>
+        <option>Bumbung bocor</option>
+        <option>Waterproofing</option>
+        <option>Pembaikan rumah lain</option>
+      </select>
+    </label>
+
+    <label>Alamat tempat kerja
+      <textarea name="alamat" required rows="3" style="display:block;width:100%;padding:12px;margin-top:5px;box-sizing:border-box;"></textarea>
+    </label>
+
+    <button type="submit" style="padding:14px;background:#16834a;color:white;border:0;border-radius:8px;font-weight:bold;font-size:16px;">Hantar Booking ke WhatsApp</button>
+  </form>
+</section>
+
 </body>
 
 </html>
