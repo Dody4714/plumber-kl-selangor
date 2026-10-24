@@ -245,18 +245,49 @@ footer {
     gap: 12px;
   }
 }
-</style>
+ .menu-toggle {
+  display: none;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+  font-size: 25px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 650px) {
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu.open {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+    padding-top: 12px;
+  }
+
+  .menu.open a {
+    display: block;
+  }
+}</style>
 </head>
 
 <body>
 
 <header>
   <div class="nav">
-    <div class="logo">
+    <div  class="logo">
       🔧 PLUMBER KL & SELANGOR
       <small>PLUMBING & HOME REPAIR</small>
-    </div>
-
+    </div> 
+<button class="menu-toggle" type="button" onclick="document.querySelector('.menu').classList.toggle('open')">☰</button>
     <nav class="menu">
       <a href="#servis">Servis</a>
       <a href="#kawasan">Kawasan</a>
