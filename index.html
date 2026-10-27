@@ -280,7 +280,41 @@ footer {
   .menu.open a {
     display: block;
   }
-}</style>
+@media (max-width: 650px) {
+  .nav {
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #154f7c;
+    z-index: 1000;
+    padding: 12px 16px;
+  }
+
+  .menu.open {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .menu.open a {
+    display: block;
+    color: white;
+  }
+}
+
+</style>
 </head>
 
 <body>
