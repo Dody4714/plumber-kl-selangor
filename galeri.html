@@ -1,77 +1,156 @@
-
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galeri Kerja - Dody Plumber</title>
-
-<style>
-body {
-  margin: 0;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-  color: #222;
-}
-
-h1 {
-  text-align: center;
-  color: #123b63;
-}
-
-h2 {
-  color: #123b63;
-  margin-top: 30px;
-  border-bottom: 2px solid #123b63;
-  padding-bottom: 8px;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-
-.gallery img {
-  width: 100%;
-  height: 190px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.back {
-  display: block;
-  text-align: center;
-  margin: 30px auto;
-  padding: 12px;
-  background: #123b63;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#154f7c">
+  <title>Galeri Projek Sebenar | Plumber KL & Selangor</title>
+  <meta name="description" content="Galeri gambar dan video hasil kerja sebenar Dody Plumber & Tukang Bumbung di Kuala Lumpur dan Selangor.">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: Arial, sans-serif; color: #26384a;
+      background: #f0f8ff; line-height: 1.6;
+    }
+    header { background: #154f7c; color: #fff; padding: 18px 16px; }
+    .topbar {
+      max-width: 1100px; margin: auto; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px;
+    }
+    .brand { font-size: 19px; font-weight: 700; line-height: 1.35; }
+    .brand small { display: block; font-size: 11px; letter-spacing: 2px; margin-top: 4px; }
+    .back {
+      color: #fff; text-decoration: none; border: 1px solid #fff;
+      border-radius: 8px; padding: 9px 13px; white-space: nowrap;
+    }
+    main { max-width: 1100px; margin: auto; padding: 34px 16px 55px; }
+    h1 { color: #164e78; font-size: clamp(28px, 5vw, 42px); margin: 0 0 8px; }
+    .intro { font-size: 17px; margin: 0 0 28px; color: #435466; }
+    .section-title { color: #164e78; font-size: 23px; margin: 30px 0 15px; }
+    .grid {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;
+    }
+    .item {
+      background: #fff; border-radius: 14px; overflow: hidden;
+      box-shadow: 0 4px 16px rgba(20, 60, 90, .10);
+    }
+    .item button {
+      display: block; width: 100%; padding: 0; border: 0; background: none;
+      cursor: pointer; text-align: left; color: inherit;
+    }
+    .item img {
+      display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+      background: #dce8f0;
+    }
+    .caption { padding: 12px 13px 15px; font-size: 15px; font-weight: 600; }
+    .video-note {
+      background: #fff; border-radius: 12px; padding: 16px;
+      border: 1px dashed #9bb7ca; color: #435466;
+    }
+    footer { text-align: center; padding: 20px 14px; color: #607487; font-size: 13px; }
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,.92); align-items: center; justify-content: center;
+      padding: 18px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 100%; max-height: 82vh; object-fit: contain; }
+    .close {
+      position: absolute; top: 12px; right: 16px; color: white;
+      background: transparent; border: 0; font-size: 38px; cursor: pointer;
+    }
+    @media (min-width: 760px) {
+      .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+      main { padding-top: 48px; }
+    }
+    @media (max-width: 380px) {
+      .grid { gap: 10px; }
+      .caption { font-size: 13px; padding: 10px; }
+      .brand { font-size: 16px; }
+    }
+  </style>
 </head>
-
 <body>
+  <header>
+    <div class="topbar">
+      <div class="brand">PLUMBER &amp; TUKANG BUMBUNG
+        <small>PLUMBING &amp; HOME REPAIR</small>
+      </div>
+      <a class="back" href="index.html">← Halaman Utama</a>
+    </div>
+  </header>
 
-<h1>GALERI HASIL KERJA</h1>
+  <main>
+    <h1>Galeri Projek Sebenar</h1>
+    <p class="intro">Gambar hasil kerja sebenar Dody Plumber &amp; Tukang Bumbung di Kuala Lumpur dan Selangor. Tekan gambar untuk melihat dengan lebih jelas.</p>
 
-<h2>Cucian Tangki Air</h2>
-<div class="gallery">
-<img src="IMG-20251205-WA0057.jpg" alt="Cucian tangki air 1">
-<img src="IMG-20251206-WA0014.jpg" alt="Cucian tangki air 2">
-</div>
+    <h2 class="section-title">Semua Hasil Kerja</h2>
+    <div class="grid">
+      <article class="item">
+        <button type="button" data-full="IMG-20251205-WA0057.jpg" aria-label="Lihat gambar sebelum cuci tangki air">
+          <img src="IMG-20251205-WA0057.jpg" alt="Sebelum cuci tangki air" loading="lazy">
+          <div class="caption">Sebelum Cuci Tangki Air</div>
+        </button>
+      </article>
+      <article class="item">
+        <button type="button" data-full="IMG-20251206-WA0014.jpg" aria-label="Lihat gambar selepas cuci tangki air">
+          <img src="IMG-20251206-WA0014.jpg" alt="Selepas cuci tangki air - siap" loading="lazy">
+          <div class="caption">Selepas Cuci Tangki Air – Siap</div>
+        </button>
+      </article>
+      <article class="item">
+        <button type="button" data-full="IMG_20261020_101006_836.jpg" aria-label="Lihat gambar sebelum kerja pecah lantai">
+          <img src="IMG_20261020_101006_836.jpg" alt="Sebelum kerja pecah lantai dan waterproofing" loading="lazy">
+          <div class="caption">Sebelum Kerja Pecah Lantai &amp; Waterproofing</div>
+        </button>
+      </article>
+      <article class="item">
+        <button type="button" data-full="IMG_20261022_125132_896.jpg" aria-label="Lihat gambar kerja waterproofing">
+          <img src="IMG_20261022_125132_896.jpg" alt="Kerja waterproofing lantai bilik air" loading="lazy">
+          <div class="caption">Kerja Waterproofing Lantai Bilik Air</div>
+        </button>
+      </article>
+      <article class="item">
+        <button type="button" data-full="IMG_20261024_153036_871.jpg" aria-label="Lihat gambar hasil pemasangan jubin">
+          <img src="IMG_20261024_153036_871.jpg" alt="Hasil pemasangan tiles" loading="lazy">
+          <div class="caption">Hasil Pemasangan Tiles</div>
+        </button>
+      </article>
+    </div>
 
-<h2>Kerja Waterproofing</h2>
-<div class="gallery">
-<img src="IMG_20261020_101006_836.jpg" alt="Waterproofing 1">
-<img src="IMG_20261022_125132_896.jpg" alt="Waterproofing 2">
-<img src="IMG_20261024_153036_871.jpg" alt="Waterproofing 3">
-</div>
+    <section id="video-kerja">
+      <h2 class="section-title">Video Kerja Sebenar</h2>
+      <div class="video-note">Video projek akan dipaparkan di bahagian ini. Kita akan masukkan video sebenar selepas fail video dimuat naik ke GitHub.</div>
+    </section>
+  </main>
 
-<a class="back" href="index.html">Kembali ke Halaman Utama</a>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Paparan gambar besar">
+    <button class="close" type="button" aria-label="Tutup">&times;</button>
+    <img id="lightbox-image" src="" alt="Paparan gambar projek">
+  </div>
 
+  <footer>© 2026 Dody Plumber &amp; Tukang Bumbung · Kuala Lumpur &amp; Selangor</footer>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    document.querySelectorAll('[data-full]').forEach(button => {
+      button.addEventListener('click', () => {
+        lightboxImage.src = button.dataset.full;
+        lightbox.classList.add('open');
+      });
+    });
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightboxImage.src = '';
+    }
+    document.querySelector('.close').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', event => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeLightbox();
+    });
+  </script>
 </body>
 </html>
-
