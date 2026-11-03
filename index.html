@@ -430,7 +430,20 @@ footer {
 </section>
 
 <section class="section" id="servis">
+<div style="margin-bottom:24px;">
+  <label for="carian-website"
+    style="display:block;font-weight:bold;margin-bottom:8px;">
+    🔍 Cari servis, harga atau soalan
+  </label>
 
+  <input id="carian-website" type="search"
+    placeholder="Contoh: cuci tangki, harga sinki, sebut harga"
+    style="width:100%;box-sizing:border-box;padding:14px;
+    font-size:16px;border:1px solid #aac4d5;border-radius:10px;">
+
+  <div id="hasil-carian" aria-live="polite"
+    style="margin-top:12px;"></div>
+</div>
   <h2 class="section-title">Perkhidmatan Kami</h2>
 
   <p class="section-desc">
@@ -961,7 +974,125 @@ Kg Klang Gates Baru • Melawati • Wangsa Maju • Setapak • Gombak • Ampa
 
 </div>
 </section>
+<script>
+(() => {
+  function pasangCarian() {
+    const input = document.getElementById('carian-website');
+    const hasil = document.getElementById('hasil-carian');
+    if (!input || !hasil) return;
 
+    function kemaskan(teks) {
+      return teks.toLowerCase()
+        .replace(/\bsink\b/g, 'sinki')
+        .replace(/\bsebutharga\b/g, 'sebut harga')
+        .replace(/[^\p{L}\p{N}\s]/gu, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    const senarai = [];
+
+    document.querySelectorAll(
+      '#servis .card, #harga .harga-card, #harga details'
+    ).forEach((elemen) => {
+      const soalan = elemen.matches('details');
+
+      // Soalan diindeks satu per satu.
+      if (!soalan && elemen.querySelector('details')) return;
+
+      const tajuk = elemen.querySelector(
+        soalan ? 'summary' : 'h2, h3'
+      );
+      if (!tajuk) return;
+
+      const kategori = elemen.closest('#harga')
+        ? (soalan ? 'Soalan Lazim' : 'Harga & Sebut Harga')
+        : 'Perkhidmatan';
+
+      senarai.push({
+        elemen,
+        tajuk: tajuk.textContent.trim(),
+        kategori,
+        teks: kemaskan(
+          kategori + ' ' + elemen.textContent
+        )
+      });
+    });
+
+    input.addEventListener('input', () => {
+      hasil.replaceChildren();
+      const carian = kemaskan(input.value);
+      if (!carian) return;
+
+      const perkataan = carian.split(' ');
+      const jumpa = senarai.filter(item =>
+        perkataan.every(kata => item.teks.includes(kata))
+      );
+
+      const status = document.createElement('p');
+      status.textContent = jumpa.length
+        ? jumpa.length + ' hasil ditemui. Tekan untuk lihat.'
+        : 'Tiada hasil. Cuba kata seperti tangki, sinki atau harga.';
+      hasil.appendChild(status);
+
+      jumpa.forEach(item => {
+        const butang = document.createElement('button');
+        butang.type = 'button';
+        butang.textContent = item.kategori + ' — ' + item.tajuk;
+        butang.style.cssText =
+          'display:block;width:100%;box-sizing:border-box;' +
+          'padding:14px;margin:8px 0;text-align:left;' +
+          'background:white;color:#154f7c;border:1px solid #aac4d5;' +
+          'border-radius:10px;font-size:16px;cursor:pointer;';
+
+        butang.addEventListener('click', () => {
+          input.blur();
+
+          if (item.elemen.matches('details')) {
+            item.elemen.open = true;
+          }
+
+          let induk = item.elemen.parentElement;
+          while (induk) {
+            if (induk.matches('details')) induk.open = true;
+            induk = induk.parentElement;
+          }
+
+          requestAnimationFrame(() => {
+            let ruangAtas = 16;
+            document.querySelectorAll('header').forEach(header => {
+              const posisi = getComputedStyle(header).position;
+              if (posisi === 'fixed' || posisi === 'sticky') {
+                ruangAtas = Math.max(
+                  ruangAtas,
+                  header.getBoundingClientRect().height + 16
+                );
+              }
+            });
+
+            window.scrollTo({
+              top: Math.max(0,
+                window.scrollY +
+                item.elemen.getBoundingClientRect().top -
+                ruangAtas
+              ),
+              behavior: 'smooth'
+            });
+          });
+        });
+
+        hasil.appendChild(butang);
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', pasangCarian);
+  } else {
+    pasangCarian();
+  }
+})();
+                                     </script>
 </body>
 
 </html>
