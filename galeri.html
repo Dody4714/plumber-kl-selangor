@@ -92,18 +92,80 @@
   margin: 0 0 8px;
   overflow-wrap: anywhere;
 }
+  .gallery-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 12px 16px;
+}
+
+.gallery-header .topbar {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.gallery-logo {
+  display: block;
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.gallery-header .brand {
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.gallery-header .brand small {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.gallery-header .back {
+  font-size: 12px;
+  padding: 7px 8px;
+}
   </style>
 </head>
 <body>
-  <header>
-    <div class="topbar">
-      <div class="brand">PLUMBER &amp; TUKANG BUMBUNG
-        <small>PLUMBING &amp; HOME REPAIR</small>
-      </div>
-      <a class="back" href="index.html">← Halaman Utama</a>
-    </div>
-  </header>
+<header class="gallery-header">
+  <div class="topbar">
+    <img class="gallery-logo"
+         src="Plumber_KL_Selangor_logo.jpg"
+         alt="Logo Plumber KL dan Selangor">
 
+    <div class="brand">
+      PLUMBER DAN TUKANG BUMBUNG
+      <small>PLUMBING &amp; HOME REPAIR</small>
+    </div>
+
+    <a class="back" href="index.html" aria-label="Kembali ke Halaman Utama">
+      ← Utama
+    </a>
+  </div>
+</header>
+<nav aria-label="Pautan servis"
+     style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;max-width:1100px;margin:0 auto;padding:10px 16px;text-align:center;font-size:12px;font-weight:bold;">
+  <a href="https://wa.me/601121334668"
+     style="display:grid;place-items:center;min-height:58px;padding:6px;background:#16834b;color:white;border-radius:10px;text-decoration:none;">
+    WhatsApp Sekarang
+  </a>
+  <a href="index.html#:~:text=Tempahan"
+     style="display:grid;place-items:center;min-height:58px;padding:6px;background:#1768a4;color:white;border-radius:10px;text-decoration:none;">
+    Booking
+  </a>
+  <a href="index.html#:~:text=Perkhidmatan%20Kami"
+     style="display:grid;place-items:center;min-height:58px;padding:6px;background:white;color:#164e73;border:1px solid #cbd9e2;border-radius:10px;text-decoration:none;">
+    Servis Kami
+  </a>
+  <a href="index.html#:~:text=Soalan%20Lazim"
+     style="display:grid;place-items:center;min-height:58px;padding:6px;background:#f47b16;color:#172b3a;border-radius:10px;text-decoration:none;">
+    Tanya Harga
+  </a>
+</nav>
   <main>
     <h1>Galeri Projek Sebenar</h1>
     <p class="intro">Gambar hasil kerja sebenar Dody Plumber &amp; Tukang Bumbung di Kuala Lumpur dan Selangor. Tekan gambar untuk melihat dengan lebih jelas.</p>
