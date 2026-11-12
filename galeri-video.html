@@ -19,58 +19,61 @@
   <main class="">
     <h1>Galeri Video Plumber dan Roofing</h1>
     <p class="intro">Tonton hasil kerja sebenar kami di Kuala Lumpur dan Selangor.</p>
-    <ul class="cards">
-      <li>
-        <a class="card" href="tonton-paip-sinki.html">
-          <img src="poster-paip-sinki.jpg" alt="" width="720" height="1280">
-          <div class="card-copy">
-            <span class="category">Plumbing · 1:36</span>
-            <h2>Pembaikan Paip Sinki</h2>
-            <span class="play-label">Tonton video →</span>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a class="card" href="tonton-waterproofing-bilik-air.html">
-          <img src="poster-waterproofing-bilik-air.jpg" alt="" width="720" height="960">
-          <div class="card-copy">
-            <span class="category">Waterproofing · 1:00</span>
-            <h2>Waterproofing Bilik Air</h2>
-            <span class="play-label">Tonton video →</span>
-          </div>
-        </a>
-      </li>
-      <li>
-<a class="card" href="tonton-paip-bocor-bawah-bumbung.html">
-  <img src="poster-paip-bocor-bawah-bumbung.jpg" alt="">
-  <div class="card-copy">
-    <span class="category">Plumbing · 0:22</span>
-    <h2>Pembaikan Paip Bocor di Bawah Bumbung</h2>
-    <span class="play-label">Tonton video →</span>
-  </div>
-</a>
-      </li>
-      <li>
-  <a class="card" href="tonton-tangki-2721.html">
-    <img src="IMG_20250905_110316_589.jpg" alt="">
+<ul class="cards" id="video-galeri">
+  <li class="card">
+    <video controls playsinline preload="none"
+           poster="poster-paip-sinki.jpg" src="video-paip-sinki-dody.mp4"></video>
     <div class="card-copy">
-      <span class="category">Plumbing · Video 1</span>
-      <h2>Penukaran Tangki Air Bawah Bumbung</h2>
-      <span class="play-label">Tonton video →</span>
+      <h2>Pembaikan Paip Sinki</h2>
+      <a class="button" href="https://wa.me/601121334668?text=Salam%20Dody%2C%20saya%20nak%20tanya%20harga%20pembaikan%20paip%20sinki.">Tanya Harga melalui WhatsApp</a>
     </div>
-  </a>
-</li>
-<li>
-  <a class="card" href="tonton-tangki-2724.html">
-    <img src="IMG_20250905_112916_652.jpg" alt="">
+  </li>
+
+  <li class="card">
+    <video controls playsinline preload="none"
+           poster="poster-waterproofing-bilik-air.jpg" src="video-galeri-kompres.mp4"></video>
     <div class="card-copy">
-      <span class="category">Plumbing · Video 2</span>
-      <h2>Penukaran Tangki Air Bawah Bumbung</h2>
-      <span class="play-label">Tonton video →</span>
+      <h2>Waterproofing Bilik Air</h2>
+      <a class="button" href="https://wa.me/601121334668?text=Salam%20Dody%2C%20saya%20nak%20tanya%20harga%20waterproofing%20bilik%20air.">Tanya Harga melalui WhatsApp</a>
     </div>
-  </a>
-</li>
-    </ul>
+  </li>
+
+  <li class="card">
+    <video controls playsinline preload="none"
+           poster="poster-paip-bocor-bawah-bumbung.jpg" src="video-paip-bocor-bawah-bumbung.mp4"></video>
+    <div class="card-copy">
+      <h2>Pembaikan Paip Bocor di Bawah Bumbung</h2>
+      <a class="button" href="https://wa.me/601121334668?text=Salam%20Dody%2C%20saya%20nak%20tanya%20harga%20pembaikan%20paip%20bocor%20di%20bawah%20bumbung.">Tanya Harga melalui WhatsApp</a>
+    </div>
+  </li>
+
+  <li class="card">
+    <video controls playsinline preload="none"
+           poster="IMG_20250905_110316_589.jpg" src="2721.mp4"></video>
+    <div class="card-copy">
+      <h2>Penukaran Tangki Air Bawah Bumbung – Video 1</h2>
+      <a class="button" href="https://wa.me/601121334668?text=Salam%20Dody%2C%20saya%20nak%20tanya%20harga%20penukaran%20tangki%20air%20bawah%20bumbung.">Tanya Harga melalui WhatsApp</a>
+    </div>
+  </li>
+
+  <li class="card">
+    <video controls playsinline preload="none"
+           poster="IMG_20250905_112916_652.jpg" src="2724.mp4"></video>
+    <div class="card-copy">
+      <h2>Penukaran Tangki Air Bawah Bumbung – Video 2</h2>
+      <a class="button" href="https://wa.me/601121334668?text=Salam%20Dody%2C%20saya%20nak%20tanya%20harga%20penukaran%20tangki%20air%20bawah%20bumbung.">Tanya Harga melalui WhatsApp</a>
+    </div>
+  </li>
+</ul>
+
+<script>
+  const videoGaleri = document.getElementById('video-galeri');
+  videoGaleri.addEventListener('play', (event) => {
+    videoGaleri.querySelectorAll('video').forEach((video) => {
+      if (video !== event.target) video.pause();
+    });
+  }, true);
+</script>
   </main>
   <footer>Servis di Kuala Lumpur dan Selangor</footer>
 </body>
