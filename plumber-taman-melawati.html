@@ -232,6 +232,41 @@
   <p>Taman Melawati | UK Perdana | Keramat</p>
   <p>Kuala Lumpur & Selangor</p>
 </footer>
+<style>
+  .melawati-float {
+    position: fixed;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    color: #fff;
+    font: 700 12px/1.2 system-ui, sans-serif;
+    text-decoration: none;
+    box-shadow: 0 4px 14px #0005;
+  }
 
+  .melawati-float--booking {
+    left: 14px;
+    background: #1d4ed8;
+  }
+
+  .melawati-float--whatsapp {
+    right: 14px;
+    background: #087b49;
+  }
+</style>
+
+<a class="melawati-float melawati-float--booking" href="./#booking">
+  Booking
+</a>
+
+<a class="melawati-float melawati-float--whatsapp"
+   href="https://wa.me/601121334668"
+   aria-label="Hubungi kami melalui WhatsApp">
+  WhatsApp
+</a>
 </body>
 </html>
