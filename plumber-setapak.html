@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Plumber Setapak dan wangsa maju | Servis Paip & Bumbung KL</title>
+  <title>Plumber, Dan Bumbung Setapak dan wangsa maju | Servis Paip & Bumbung KL</title>
 
   <meta name="description" content="Perlukan plumber di Setapak? Servis paip bocor, sinki tersumbat, tandas, tangki air dan waterproofing di Setapak, Kuala Lumpur. Hubungi kami melalui WhatsApp.">
 
@@ -80,6 +80,33 @@
       background: #0754a3;
       color: white;
     }
+    .floating-buttons {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
+}
+
+.floating-buttons a {
+  flex: 1;
+  padding: 14px 10px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.floating-whatsapp {
+  background: #078b50;
+}
+
+.floating-booking {
+  background: #0754a3;
+}
   </style>
 </head>
 <body>
@@ -87,6 +114,9 @@
   <h1>Plumber Setapak &amp; Wangsa Maju</h1>
   <p>Servis Paip &amp; Tukang Bumbung Kuala Lumpur</p>
 </header>
+    <a href="https://dody4714.github.io/plumber-kl-selangor/"
+   style="display:inline-block; margin:12px; padding:10px 16px; background:#0b4f8a; color:white; text-decoration:none; border-radius:8px;">
+  Kembali ke Halaman Utama</a>
 <main>
   <section>
     <h2>Servis Plumber di Setapak &amp; Wangsa Maju</h2>
@@ -232,6 +262,17 @@
   <p>PLUMBER & TUKANG BUMBUNG</p>
   <p>Kuala Lumpur & Selangor</p>
 </footer>
+<div class="floating-buttons">
+  <a class="floating-whatsapp"
+     href="https://wa.me/601121334668"
+     target="_blank"
+     rel="noopener">
+    WhatsApp Sekarang
+  </a>
 
+  <a class="floating-booking" href="./#booking">
+    Booking
+  </a>
+</div>
 </body>
 </html>
