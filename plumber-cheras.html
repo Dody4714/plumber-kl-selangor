@@ -14,101 +14,36 @@
   <link rel="canonical" href="https://dody4714.github.io/plumber-kl-selangor/plumber-cheras.html">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f7fb;
-      color: #222;
-      line-height: 1.7;
-    }
-
-    header {
-      background: #0756a8;
-      color: white;
-      padding: 15px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 23px;
-      margin: 8px 0;
-    }
-
-    header p {
-      margin: 5px 0;
-      font-size: 14px;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 16px;
-    }
-
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 18px;
-      box-shadow: 0 2px 8px #00000012;
-    }
-
-    h2 {
-      color: #0756a8;
-      font-size: 21px;
-    }
-
-    h3 {
-      color: #0756a8;
-    }
-
-    .btn {
-      display: block;
-      background: #087b35;
-      color: white;
-      text-align: center;
-      padding: 13px;
-      border-radius: 9px;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 12px 0;
-    }
-
-    .home {
-      background: #0756a8;
-    }
-
-    ul {
-      padding-left: 22px;
-    }
-
-    footer {
-      background: #0756a8;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-    }
-  </style>
+:root{--sky:#6656a5;--cloud:#c9c4ee;--paper:#f5f3ff;--gold:#d5a63b;--ink:#183049;--muted:#52677b;--card:rgba(255,255,255,.94)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(ellipse at 12% 8%,rgba(255,255,255,.95) 0 8%,transparent 33%),radial-gradient(ellipse at 88% 18%,rgba(255,255,255,.78) 0 7%,transparent 31%),linear-gradient(155deg,var(--cloud),var(--paper) 48%,#fff 100%);background-attachment:fixed}
+a{color:inherit}header{padding:22px 18px 17px;text-align:center;background:linear-gradient(180deg,rgba(48,39,91,.34),rgba(24,31,55,.15) 76%,transparent 100%)}
+.brand{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 auto 10px;color:#fff;text-decoration:none;font-weight:800;letter-spacing:.06em;font-size:.9rem;text-shadow:0 1px 5px #19334a}
+.brand img{width:50px;height:50px;object-fit:cover;border:2px solid rgba(255,255,255,.9);border-radius:50%;box-shadow:0 4px 14px #18304933}.brand span{text-align:left}.brand small{display:block;font-size:.72rem;letter-spacing:.12em;font-weight:600}
+.area-title{margin:10px auto;color:var(--gold);font-size:clamp(1.8rem,5vw,3rem);line-height:1.12;text-shadow:0 1px 0 #fff,0 2px 8px #41506633}.subtitle{margin:8px auto 0;color:#fff;text-shadow:0 1px 4px #183049;font-weight:650}
+.wrap{width:min(960px,calc(100% - 28px));margin:0 auto 90px;padding:0}.nav{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;padding:12px;margin:8px 0 18px;border:1px solid #ffffffa6;border-radius:20px;background:rgba(24,31,55,.13);backdrop-filter:blur(10px)}
+.nav a{display:inline-flex;align-items:center;justify-content:center;padding:8px 13px;border:1px solid #fff;border-radius:999px;background:#fff;color:var(--ink);font-size:.9rem;font-weight:700;text-decoration:none;box-shadow:0 3px 10px #19334a12}.nav a:hover{border-color:var(--gold);transform:translateY(-1px)}
+main>section,main>.card,main>.hero,main>article{margin:14px 0;padding:clamp(18px,4vw,30px);border:1px solid #fff;border-radius:22px;background:var(--card);box-shadow:0 10px 28px #27445a16;backdrop-filter:blur(8px)}
+main>section:first-of-type.hero{text-align:center}h2{margin:0 0 12px;color:var(--sky);font-size:clamp(1.3rem,3.5vw,1.8rem);line-height:1.25}h3{margin:16px 0 6px;color:var(--ink);font-size:1.05rem}p,li{color:var(--muted)}p{margin:10px 0}ul{padding-left:22px}.btn{display:inline-flex;align-items:center;justify-content:center;background:#fff!important;color:var(--ink)!important;border:1px solid #e5e2f2;border-radius:999px;padding:10px 16px;text-decoration:none;font-weight:700;box-shadow:0 3px 10px #19334a12}.btn.home,.btn.back{background:#fff!important;color:var(--ink)!important}
+footer{padding:22px 18px 88px;text-align:center;color:var(--muted);font-size:.88rem;border-top:1px solid #ffffffa8}
+.fixed-cta{position:fixed;z-index:20;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;padding:8px max(14px,calc((100vw - 960px)/2));pointer-events:none;background:linear-gradient(0deg,#ffffffd9,transparent)}.fixed-cta a{pointer-events:auto;width:52px;height:52px;display:flex;align-items:center;justify-content:center;border:2px solid #fff;border-radius:50%;color:#fff;font-size:1.4rem;text-decoration:none;box-shadow:0 3px 12px #18304944}.fixed-cta .wa{background:#20aa63}.fixed-cta .book{background:var(--sky)}.fixed-cta a:focus-visible,.nav a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media(max-width:520px){header{padding-top:18px}.brand img{width:44px;height:44px}.fixed-cta a{width:46px;height:46px;font-size:1.2rem}}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>Plumber Cheras & Tukang Bumbung</h1>
-  <p>PLUMBER & TUKANG BUMBUNG</p>
-  <p>Kuala Lumpur & Selangor</p>
+<a class="brand" href="index.html"><img src="Plumber_KL_Selangor_logo.jpg" alt="Logo Plumber KL dan Selangor"><span>PLUMBER KL &amp; SELANGOR<small>SERVIS PAIP &amp; BUMBUNG</small></span></a>
+<h1 class="area-title">Plumber Cheras &amp; Tukang Bumbung</h1>
+<p class="subtitle">Kuala Lumpur &amp; Selangor</p>
 </header>
 
-<main class="container">
+<main class="wrap">
+<nav class="nav" aria-label="Pautan halaman"><a href="index.html">Halaman Utama</a><a href="butiran-paip-bocor.html">Butiran Servis</a><a href="galeri.html">Galeri Kerja</a><a href="galeri-video.html">Galeri Video</a></nav>
 
-  <a class="btn home" href="index.html">
-    Kembali ke Halaman Utama
-  </a>
+
+  
 
   <section class="card">
     <h2>Servis Plumber Cheras & Tukang Bumbung</h2>
@@ -246,9 +181,7 @@
       Hubungi Kami Melalui WhatsApp
     </a>
 
-    <a class="btn home" href="index.html">
-      Kembali ke Halaman Utama
-    </a>
+    
   </section>
 
 </main>
@@ -260,5 +193,6 @@
   <p>Kuala Lumpur & Selangor</p>
 </footer>
 
+<div class="fixed-cta" aria-label="Hubungi atau tempah servis"><a class="wa" href="https://wa.me/601121334668" aria-label="Hubungi melalui WhatsApp" title="WhatsApp">☏</a><a class="book" href="index.html#booking" aria-label="Tempah servis" title="Booking">▣</a></div>
 </body>
 </html>
