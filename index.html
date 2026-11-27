@@ -93,1290 +93,467 @@
 }
 </script>
 <style>
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;background:#f0f8ff;color:#26384a;line-height:1.7;padding-bottom:72px}
+img{max-width:100%}
+section[id]{scroll-margin-top:90px}
+
+/* HEADER */
+header{background:#154f7c;color:#fff;padding:14px 18px;position:sticky;top:0;z-index:1000}
+.nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative}
+.logo{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:bold;line-height:1.3}
+.logo img{width:46px;height:46px;object-fit:contain;border-radius:50%;background:#fff}
+.logo small{display:block;font-size:11px;letter-spacing:2px;font-weight:normal}
+.menu a{color:#fff;text-decoration:none;font-weight:bold;margin-left:14px}
+.menu-toggle{display:none;background:transparent;color:#fff;border:1px solid #fff;border-radius:8px;font-size:24px;padding:2px 10px;cursor:pointer}
+
+/* HERO */
+.hero{background:#eaf8fc url('banner-plumber-kl-selangor.jpg') center/cover no-repeat;padding:clamp(40px,8vw,80px) 18px 36px;min-height:360px}
+.hero-inner{max-width:1000px;margin:0 auto;text-align:center}
+.hero-copy{max-width:800px;margin:0 auto;padding:16px 20px;border-radius:22px;background:rgba(255,255,255,.62);backdrop-filter:blur(8px)}
+.hero-copy h1{margin:0 0 8px;color:#123c59;font-size:clamp(28px,5vw,44px);line-height:1.15}
+.hero-copy p{margin:0;color:#234f68;font-size:clamp(15px,2.2vw,19px);font-weight:600}
+.buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:22px auto 0;max-width:640px}
+.buttons .btn{min-height:52px;display:flex;align-items:center;justify-content:center;border-radius:14px;box-shadow:0 6px 16px rgba(26,74,100,.16);font-size:15px}
+.features{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 20px;margin-top:18px;font-weight:bold;color:#154f7c}
+.features span{background:rgba(255,255,255,.8);padding:4px 12px;border-radius:20px}
+
+/* BUTANG */
+.btn{display:inline-block;padding:13px 20px;border-radius:12px;text-decoration:none;font-weight:bold;text-align:center}
+.btn-wa{background:#168c50;color:#fff}
+.btn-biru{background:#1769aa;color:#fff}
+.btn-oren{background:#f47716;color:#fff}
+.btn-putih{background:#fff;color:#155783;border:1px solid #c4d9e8}
+
+/* SEKSYEN */
+.section{max-width:1100px;margin:auto;padding:40px 18px}
+.section-alt{background:#e0f1fc}
+.section-title{text-align:center;color:#154f7c;font-size:clamp(24px,4vw,30px);margin:0 0 8px;line-height:1.25}
+.section-desc{text-align:center;margin:0 auto 24px;max-width:680px}
+.center{text-align:center}
+
+/* CARIAN */
+.carian{max-width:700px;margin:0 auto}
+.carian label{display:block;font-weight:bold;margin-bottom:8px}
+.carian input{width:100%;padding:14px;font-size:16px;border:1px solid #aac4d5;border-radius:10px}
+#hasil-carian{margin-top:10px}
+#hasil-carian button{display:block;width:100%;padding:14px;margin:8px 0;text-align:left;background:#fff;color:#154f7c;border:1px solid #aac4d5;border-radius:10px;font-size:16px;cursor:pointer}
+
+/* KAD SERVIS */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#fff;border:1px solid #dfebf3;border-radius:15px;padding:18px;box-shadow:0 5px 18px rgba(20,60,90,.06);display:flex;flex-direction:column}
+.card img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;margin-bottom:10px}
+.card h3{color:#154f7c;margin:4px 0 6px}
+.card p{margin:0 0 12px;flex-grow:1}
+.card-links{display:flex;gap:8px;flex-wrap:wrap}
+.card-links a{flex:1 1 120px;font-size:14px;padding:10px 12px}
+.sosial{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:500px;margin:0 auto 26px}
+.sosial a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:56px;border-radius:12px;color:#fff;text-decoration:none;font-weight:bold}
+
+/* GALERI */
+.slider{display:flex;gap:14px;overflow-x:auto;padding:5px 0 15px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.slider>a{flex:0 0 78%;max-width:320px;scroll-snap-align:start;text-decoration:none;color:#164e73;display:block}
+.slider img,.slider video{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px}
+.vid{position:relative;border-radius:16px;overflow:hidden;background:#153b50}
+.vid video{pointer-events:none;border-radius:0}
+.vid span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:46px;background:rgba(0,0,0,.15)}
+.slider p{text-align:center;margin:10px 0;font-weight:bold}
+
+/* KAWASAN */
+.kawasan-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.kawasan-grid a{background:#0756a8;color:#fff;padding:14px 8px;border-radius:10px;text-align:center;text-decoration:none;font-weight:bold;display:flex;align-items:center;justify-content:center;line-height:1.35}
+
+/* HARGA */
+.harga-box{max-width:800px;margin:0 auto;background:#fff;border:2px solid #8bc5ed;border-radius:22px;padding:24px;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.harga-box h3{color:#14243d;margin:18px 0 8px}
+.chip-list{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip-list span{background:#edf6fc;border:1px solid #acd2e9;border-radius:20px;padding:6px 12px;font-weight:bold;font-size:14px}
+.faq-item{background:#eff8fe;border:1px solid #acd2e9;border-radius:14px;padding:14px 16px;margin:10px 0}
+.faq-item summary{font-weight:bold;cursor:pointer;line-height:1.6}
+.faq-item p{margin:8px 0 0}
+
+/* LANGKAH & BOOKING */
+.langkah{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.langkah div{background:#fff;border:1px solid #dfebf3;border-radius:14px;padding:16px}
+.langkah h3{margin:0 0 6px;color:#154f7c;font-size:18px}
+.langkah p{margin:0}
+form.booking{display:grid;gap:12px;max-width:640px;margin:0 auto;background:#fff;padding:20px;border-radius:16px;border:1px solid #dfebf3}
+form.booking input,form.booking select,form.booking textarea{display:block;width:100%;padding:12px;margin-top:5px;font-size:16px;border:1px solid #aac4d5;border-radius:8px}
+form.booking button{padding:14px;background:#16834a;color:#fff;border:0;border-radius:8px;font-weight:bold;font-size:16px;cursor:pointer}
+
+/* ULASAN */
+.ulasan-box{max-width:700px;margin:0 auto;background:#fff;padding:24px;border-radius:22px;box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.ulasan-box a{display:block;text-align:center;padding:14px;border-radius:14px;text-decoration:none;font-weight:bold;margin:10px 0}
+
+/* HUBUNGI & FOOTER */
+.contact{background:#154f7c;color:#fff;text-align:center;padding:45px 20px}
+.contact h2{font-size:28px;margin-top:0}
+.contact .btn{background:#20bf65;color:#fff;margin-top:12px}
+.tiktok-links{margin-top:18px}
+.tiktok-links a{display:inline-block;padding:11px 18px;margin:5px;background:#111;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold}
+footer{background:#103958;color:#fff;text-align:center;padding:20px 15px;font-size:13px}
+footer a{color:#cfe6f7}
+
+/* WHATSAPP TERAPUNG */
+.wa-terapung{position:fixed;right:16px;bottom:16px;z-index:9000;display:flex;align-items:center;gap:8px;background:#1fa855;color:#fff;font:700 15px/1 Arial,sans-serif;text-decoration:none;padding:13px 18px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.25);animation:wa-denyut 2.5s ease-in-out infinite}
+.wa-terapung:hover{background:#178a45}
+.wa-terapung svg{width:22px;height:22px;flex-shrink:0}
+@keyframes wa-denyut{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@media (prefers-reduced-motion:reduce){.wa-terapung{animation:none}}
+
+/* TELEFON */
+@media (max-width:760px){
+  .menu-toggle{display:block}
+  .menu{display:none;position:absolute;top:100%;left:-18px;right:-18px;background:#154f7c;padding:12px 18px;flex-direction:column;gap:12px}
+  .menu.open{display:flex}
+  .menu a{margin-left:0}
+  .grid{grid-template-columns:1fr}
+  .langkah{grid-template-columns:1fr}
+  .logo{font-size:14px}
 }
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f0f8ff;
-  color: #26384a;
-  line-height: 1.7;
-}
-
-header {
-    background: #154f7c;
-    color: white;
-    padding: 18px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.nav {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.logo {
-  font-size: 19px;
-  font-weight: bold;
-  line-height: 1.4;
-}
-
-.logo small {
-  display: block;
-  font-size: 12px;
-  letter-spacing: 2px;
-}
-
-.menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  margin-left: 14px;
-}
-
-.hero {
-  background-image: url('banner-plumber-kl-selangor.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #eaf8fc;
-  padding: clamp(48px, 8vw, 88px) 22px 42px;
-  margin: 0;
-  min-height: 390px;
-}
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  width: min(100%, 1100px);
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0;
-  text-align: center;
-}
-.hero-copy {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 16px 20px;
-  border-radius: 22px;
-  background: rgba(255,255,255,.58);
-  backdrop-filter: blur(8px);
-}
-.hero-copy h1 {
-  margin: 0 0 10px;
-  color: #123c59;
-  font-size: clamp(28px, 5vw, 46px);
-  line-height: 1.12;
-}
-.hero-copy p {
-  margin: 0;
-  color: #234f68;
-  font-size: clamp(15px, 2.2vw, 19px);
-  font-weight: 600;
-}
-
-.label {
-  display: inline-block;
-  border: 1px solid #b8d7eb;
-  background: white;
-  color: #154f7c;
-  border-radius: 30px;
-  padding: 7px 15px;
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 1.5px;
-}
-
-
-h1 {
-  color: #102f4e;
-  font-size: clamp(38px, 7vw, 66px);
-  line-height: 1.05;
-  margin: 24px 0 15px;
-}
-
-.hero h2 {
-  color: #155783;
-  font-size: 23px;
-  margin: 0 0 15px;
-}
-
-.hero p {
-  font-size: 17px;
-  max-width: 650px;
-}
-
-.tagline {
-  color: #155783;
-  font-weight: bold;
-  font-style: italic;
-  font-size: 20px;
-}
-
-.buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin: 26px auto 0;
-    width: 100%;
-    max-width: 1000px;
-}
-
-.buttons .btn {
-    flex: 1 1 165px;
-    min-width: 150px;
-    min-height: 52px;
-    padding: 12px 14px;
-    font-size: 14px;
-    line-height: 1.3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(26,74,100,.16);
-}
-
-.buttons a:nth-child(1) {
-    background: #168C50;
-    color: white;
-}
-
-.buttons a:nth-child(2) {
-    background: #1769AA;
-    color: white;
-}
-
-.buttons a:nth-child(3) {
-    background: white;
-    color: #155783;
-}
-
-.buttons a:nth-child(4) {
-    background: #F47716;
-    color: white;
-}
-
-.btn {
-  display: inline-block;
-  padding: 14px 22px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: bold;
-  text-align: center;
-}
-
-.btn-primary {
-  background: #155783;
-  color: white;
-}
-
-.btn-secondary {
-  background: white;
-  color: #155783;
-  border: 1px solid #c4d9e8;
-}
-
-.features {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 14px 22px;
-  margin-top: 22px;
-  font-weight: bold;
-  color: #154f7c;
-}
-
-.section {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px 22px;
-}
-
-.section-title {
-  text-align: center;
-  color: #154f7c;
-  font-size: 30px;
-  margin: 0 0 10px;
-}
-
-.section-desc {
-  text-align: center;
-  margin: 0 auto 28px;
-  max-width: 650px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.card {
-  background: white;
-  border: 1px solid #dfebf3;
-  border-radius: 15px;
-  padding: 23px;
-  box-shadow: 0 5px 18px rgba(20, 60, 90, 0.06);
-}
-
-.card h3 {
-  color: #154f7c;
-  margin-top: 0;
-}
-
-.icon {
-  font-size: 32px;
-}
-
-.area {
-  background: #e0f1fc;
-  text-align: center;
-  padding: 38px 20px;
-}
-
-.area p {
-  max-width: 800px;
-  margin: auto;
-}
-
-.contact {
-  background: #154f7c;
-  color: white;
-  text-align: center;
-  padding: 45px 20px;
-}
-
-.contact h2 {
-  font-size: 30px;
-}
-
-.contact .btn {
-  background: #20bf65;
-  color: white;
-  margin-top: 15px;
-}
-
-footer {
-  background: #103958;
-  color: white;
-  text-align: center;
-  padding: 22px 15px;
-  font-size: 13px;
-}
-
-@media (max-width: 650px) {
-  .menu {
-    display: none;
-  }
-
-  .hero {
-    padding: 36px 16px 30px;
-    min-height: 360px;
-    background-position: center;
-  }
-  .hero-copy { padding: 14px 12px; }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .buttons {
-    flex-direction: row;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .features {
-    gap: 12px;
-  }
-}
- .menu-toggle {
-  display: block;
-  background: transparent;
-  color: white;
-  border: 1px solid white;
-  border-radius: 8px;
-  font-size: 25px;
-  padding: 4px 10px;
-  cursor: pointer;
-}
-
-@media (max-width: 650px) {
-.nav {
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-}
-.menu-toggle {
-  display: block;
-  margin-left: auto;
-  flex-shrink: 0;
-}
-
-  .menu.open {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 12px;
-    padding-top: 12px;
-  }
-
-  .menu.open a {
-    display: block;
-  }
-@media (max-width: 650px) {
-  .nav {
-    position: relative;
-  }
-
-  .menu-toggle {
-    display: block;
-    margin-left: auto;
-  }
-
-  .menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #154f7c;
-    z-index: 1000;
-    padding: 12px 16px;
-  }
-
-  .menu.open {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 12px;
-  }
-
-  .menu.open a {
-    display: block;
-    color: white;
-  }
-}
-
 </style>
 </head>
 
 <body>
 
+<!-- 1. HEADER -->
 <header>
   <div class="nav">
-<div class="logo" style="display:flex; align-items:center; gap:10px;">
-  <img src="Plumber_KL_Selangor_logo.jpg" alt="Logo Plumber KL & Selangor" style="width:50px; height:50px; object-fit:contain; border-radius:50%;">
-  <div>
-PLUMBER DAN TUKANG BUMBUNG
-    <small>PLUMBING &amp; HOME REPAIR</small>
-  </div>
-</div>
-<button class="menu-toggle" type="button" onclick="document.querySelector('.menu').classList.toggle('open')">☰</button>
+    <div class="logo">
+      <img src="Plumber_KL_Selangor_logo.jpg" alt="Logo Plumber KL & Selangor">
+      <div>PLUMBER DAN TUKANG BUMBUNG<small>PLUMBING &amp; HOME REPAIR</small></div>
+    </div>
+    <button class="menu-toggle" type="button" aria-label="Buka menu" onclick="document.querySelector('.menu').classList.toggle('open')">☰</button>
     <nav class="menu">
       <a href="#servis">Servis</a>
+      <a href="#galeri-kerja">Galeri</a>
       <a href="#kawasan">Kawasan</a>
-      <a href="#hubungi">Hubungi</a> <a href="#panduan">Panduan</a>
-<a href="galeri">Galeri</a>
-<a href="#booking">Tempahan</a>
-<a href="#ulasan">Ulasan Pelanggan</a>
+      <a href="#harga">Harga</a>
+      <a href="#booking">Tempahan</a>
+      <a href="#ulasan">Ulasan</a>
+      <a href="#hubungi">Hubungi</a>
     </nav>
   </div>
 </header>
 
+<!-- 2. HERO -->
 <section class="hero">
   <div class="hero-inner">
-<div class="hero-copy">
+    <div class="hero-copy">
       <h1>Servis Paip &amp; Bumbung</h1>
       <p>Plumber dan tukang bumbung Kuala Lumpur &amp; Selangor</p>
     </div>
 
+    <div class="buttons">
+      <a class="btn btn-wa" href="https://wa.me/601121290194?text=Salam%2C%20saya%20ingin%20bertanya%20tentang%20servis%20plumber." target="_blank" rel="noopener">💬 WhatsApp Sekarang</a>
+      <a class="btn btn-oren" href="https://wa.me/601121290194?text=Salam%2C%20saya%20nak%20tanya%20harga%20servis.%0AMasalah%3A%20%0ALokasi%3A%20" target="_blank" rel="noopener">💰 Tanya Harga</a>
+      <a class="btn btn-biru" href="#booking">📅 Booking</a>
+      <a class="btn btn-putih" href="#servis">🔧 Servis Kami</a>
+    </div>
 
-
-        <div class="buttons">
-      <a class="btn btn-primary"
-         href="https://wa.me/601121290194?text=Salam%2C%20saya%20ingin%20bertanya%20tentang%20servis%20plumber."
-         target="_blank">
-        💬 WhatsApp Sekarang
-      </a>
-
-<a class="btn btn-secondary" href="#booking">
-  📅 Booking
-</a>
-
-<a class="btn btn-secondary" href="#servis">
-  🔧 Servis Kami
-</a>
-
-<a class="btn btn-secondary" href="#harga">
-  💰 Tanya Harga
-</a><a class="btn btn-secondary" href="perjalanan-kerja-harian.html">
-  📸 Perjalanan Kerja Harian
-</a>
-        </div><div class="features">
+    <div class="features">
       <span>⚡ Respon Pantas</span>
       <span>🛠️ Kerja Kemas</span>
       <span>🤝 Mesra Pelanggan</span>
     </div>
-
-
-
   </div>
 </section>
 
+<!-- 3. SERVIS -->
 <section class="section" id="servis">
-<div style="margin-bottom:24px;">
-  <label for="carian-website"
-    style="display:block;font-weight:bold;margin-bottom:8px;">
-    🔍 Cari servis, harga atau soalan
-  </label>
 
-  <input id="carian-website" type="search"
-    placeholder="Contoh: cuci tangki, harga sinki, sebut harga"
-    style="width:100%;box-sizing:border-box;padding:14px;
-    font-size:16px;border:1px solid #aac4d5;border-radius:10px;">
-
-  <div id="hasil-carian" aria-live="polite"
-    style="margin-top:12px;"></div>
-</div>
-<section id="kawasan" style="margin:24px 0;scroll-margin-top:120px;">
-  <h2 style="color:#0756a8;text-align:center;">
-    Kawasan Perkhidmatan Kami
-  </h2>
-
-  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;">
-
-    <a href="plumber-gombak.html"
-       style="background:#0756a8;color:white;padding:14px 8px;border-radius:10px;text-align:center;text-decoration:none;font-weight:bold;">
-      Plumber Gombak
-    </a>
-
-    <a href="plumber-setapak.html"
-       style="background:#0756a8;color:white;padding:14px 8px;border-radius:10px;text-align:center;text-decoration:none;font-weight:bold;">
-      Plumber Setapak & Wangsa Maju
-    </a>
-
-    <a href="plumber-taman-melawati.html"
-       style="background:#0756a8;color:white;padding:14px 8px;border-radius:10px;text-align:center;text-decoration:none;font-weight:bold;">
-      Plumber Melawati, UK Perdana & Keramat
-    </a>
-
-    <a href="plumber-ampang.html"
-       style="background:#0756a8;color:white;padding:14px 8px;border-radius:10px;text-align:center;text-decoration:none;font-weight:bold;">
-      Plumber Ampang
-    </a>
-    <a href="plumber-cheras.html" style="grid-column:1/-1;background:#0756a8;color:white;padding:14px 8px;border-radius:10px;text-align:center;display:block;">Plumber Cheras &amp; Tukang Bumbung</a>
-<a href="plumber-selayang-kepong.html" style="background:#0756a8;color:white;padding:14px 8px;border-radius:10px;text-align:center;display:block;">Plumber Selayang &amp; Kepong</a>
-
-<a href="plumber-damansara-damai-sungai-buloh.html" style="background:#0756a8;color:white;padding:14px 8px;border-radius:10px;text-align:center;display:block;">Plumber Damansara Damai &amp; Sungai Buloh</a>
-
-<a href="plumber-subang-jaya-usj.html" style="background:#0756a8;color:white;padding:14px 8px;border-radius:10px;text-align:center;display:block;">Plumber Subang Jaya &amp; USJ</a>
-
-<a href="plumber-denai-alam-elmina-saujana-utama.html" style="background:#0756a8;color:white;padding:14px 8px;border-radius:10px;text-align:center;display:block;">Plumber Denai Alam, Elmina &amp; Bandar Saujana Utama</a>
-
-<a href="plumber-shah-alam-klang.html" style="background:#0756a8;color:white;padding:14px 8px;border-radius:10px;text-align:center;display:block;">Plumber Shah Alam &amp; Klang</a>
-
-<a href="plumber-sri-petaling.html" style="background:#0756a8;color:white;padding:14px 8px;border-radius:10px;text-align:center;display:block;">Plumber Sri Petaling</a>
-
-<a href="plumber-bukit-jalil.html" style="background:#0756a8;color:white;padding:14px 8px;border-radius:10px;text-align:center;display:block;">Plumber Bukit Jalil</a>
-
-<a href="plumber-puchong.html" style="background:#0756a8;color:white;padding:14px 8px;border-radius:10px;text-align:center;display:block;">Plumber Puchong</a>
-
-<a href="plumber-petaling-jaya.html" style="background:#0756a8;color:white;padding:14px 8px;border-radius:10px;text-align:center;display:block;">Plumber PJ (Petaling Jaya)</a>
-
-<a href="plumber-rawang.html" style="background:#0756a8;color:white;padding:14px 8px;border-radius:10px;text-align:center;display:block;">Plumber Rawang &amp; Taman Anggun</a>
+  <div class="carian">
+    <label for="carian-website">🔍 Cari servis atau soalan</label>
+    <input id="carian-website" type="search" placeholder="Contoh: cuci tangki, sinki tersumbat, bumbung">
+    <div id="hasil-carian" aria-live="polite"></div>
   </div>
-</section>
 
-  <h2 class="section-title">Perkhidmatan Kami</h2>
+  <h2 class="section-title" style="margin-top:34px;">Perkhidmatan Kami</h2>
+  <p class="section-desc">Kami membaiki paip dan bumbung bocor, mengatasi sinki dan tandas tersumbat, mencuci dan menukar tangki air serta membuat kerja waterproofing di Kuala Lumpur dan Selangor. Pilih servis untuk lihat butiran dan contoh kerja kami.</p>
 
-  <p class="section-desc">
-Kami membaiki paip dan bumbung bocor, mengatasi sinki dan tandas tersumbat, mencuci dan menukar tangki air serta membuat kerja waterproofing di Kuala Lumpur dan Selangor. Pilih servis untuk lihat butiran dan contoh kerja kami.
-  </p>
-<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:15px 0 25px;">
-
-  <a href="https://maps.app.goo.gl/5hBypRCG4m3eDnX8A"
-     target="_blank" rel="noopener noreferrer"
-     style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80px;padding:8px 4px;box-sizing:border-box;background:#16874b;color:white;border-radius:12px;text-decoration:none;text-align:center;font-size:14px;font-weight:bold;">
-    <span style="font-size:24px;margin-bottom:6px;">📍</span>
-    Google Maps
-  </a>
-
-  <a href="https://www.tiktok.com/@plumberklselangor"
-     target="_blank" rel="noopener noreferrer"
-     style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80px;padding:8px 4px;box-sizing:border-box;background:#171717;color:white;border-radius:12px;text-decoration:none;text-align:center;font-size:14px;font-weight:bold;">
-    <span style="font-size:24px;margin-bottom:6px;">🎵</span>
-    TikTok
-  </a>
-
-  <!--<a href="https://www.facebook.com/share/1CBWvdi6J2/"
-     target="_blank" rel="noopener noreferrer"
-     style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80px;padding:8px 4px;box-sizing:border-box;background:#1877f2;color:white;border-radius:12px;text-decoration:none;text-align:center;font-size:14px;font-weight:bold;">
-    <span style="font-size:24px;margin-bottom:6px;">ⓕ</span>
-    Facebook
-  </a>-->
-
-</div>
   <div class="grid">
-
-<div class="card">
-  <img src="IMG_20260914_115414_413.jpg"
-       alt="Kerja pembaikan paip bocor"
-       style="width:100%;border-radius:10px 10px 0 0;">
-
-  <h3>Baiki Paip Bocor</h3>
-
-  <p>Cari titik bocor dahulu, baiki bahagian yang rosak sahaja.</p>
-
-  <a href="butiran-paip-bocor.html">
-    Lihat Butiran →
-  </a>
-  
-  <a class="btn btn-secondary" href="galeri.html">
-  🖼️ Lihat Galeri →
-  </a>
-</div>
-
-<div class="card">
-  <div class="icon">🚿</div><img src="IMG_20261019_154412_115.jpg"
-     alt="Kerja pembaikan sinki dan tandas"
-     style="width:100%;border-radius:10px;margin-bottom:10px;">
-  <h3>Sink & Tandas</h3>
-  <p>Pembaikan sink, mangkuk tandas dan kelengkapan bilik air.</p>
-
-<a href="butiran-paip-bocor.html#sinki-tandas">
-    Lihat Butiran →
-  </a>
-
-  <a class="btn btn-secondary" href="galeri.html">
-    🖼️ Lihat Galeri →
-  </a>
-</div>
-
-<div class="card">
-  <img src="IMG_20251025_104806_165.jpg"
-       alt="Kerja servis tangki air"
-       style="width:100%;border-radius:10px;margin-bottom:10px;">
-
-  <h3>Tangki</h3>
-  <p>Servis mencuci, membaiki dan menggantikan tangki air.</p>
-
-  <a href="butiran-paip-bocor.html#tangki-air">
-    Lihat Butiran →
-  </a>
-
-  <a class="btn btn-secondary" href="galeri.html">
-    🖼️ Lihat Galeri →
-  </a>
-</div>
-
-<div class="card">
-  <img src="IMG_20250906_104523_451.jpg"
-       alt="Kerja pembaikan bumbung bocor"
-       style="width:100%;border-radius:10px;margin-bottom:10px;">
-
-  <h3>Bumbung Bocor</h3>
-  <p>Pemeriksaan dan pembaikan kebocoran bumbung rumah.</p>
-<a href="butiran-paip-bocor.html#bumbung-bocor">
-  Lihat Butiran →
-</a>
-  <a class="btn btn-secondary" href="galeri.html">
-    🖼️ Lihat Galeri →
-  </a>
-</div>
+    <div class="card">
+      <img src="IMG_20260914_115414_413.jpg" alt="Kerja pembaikan paip bocor" loading="lazy">
+      <h3>💧 Baiki Paip Bocor</h3>
+      <p>Cari titik bocor dahulu, baiki bahagian yang rosak sahaja.</p>
+      <div class="card-links"><a class="btn btn-biru" href="butiran-paip-bocor.html">Lihat Butiran →</a><a class="btn btn-putih" href="galeri.html">🖼️ Galeri</a></div>
+    </div>
 
     <div class="card">
-<img src="IMG_20260528_114232_148.jpg"
-     alt="Hasil siap kerja waterproofing slab"
-     style="width:100%;border-radius:10px;margin-bottom:10px;">
-      <h3>Waterproofing</h3>
+      <img src="IMG_20261019_154412_115.jpg" alt="Kerja pembaikan sinki dan tandas" loading="lazy">
+      <h3>🚿 Sinki &amp; Tandas</h3>
+      <p>Pembaikan sinki, mangkuk tandas dan kelengkapan bilik air.</p>
+      <div class="card-links"><a class="btn btn-biru" href="butiran-paip-bocor.html#sinki-tandas">Lihat Butiran →</a><a class="btn btn-putih" href="galeri.html">🖼️ Galeri</a></div>
+    </div>
+
+    <div class="card">
+      <img src="IMG_20261107_110159_446.jpg" alt="Kerja pembaikan saluran paip tersumbat" loading="lazy">
+      <h3>🔧 Saluran Paip Tersumbat</h3>
+      <p>Kerja membuka sumbatan pada saluran paip sinki, bilik air dan tandas.</p>
+      <div class="card-links"><a class="btn btn-biru" href="butiran-paip-bocor.html#paip-tersumbat">Lihat Butiran →</a><a class="btn btn-putih" href="galeri.html">🖼️ Galeri</a></div>
+    </div>
+
+    <div class="card">
+      <img src="IMG_20251025_104806_165.jpg" alt="Kerja servis tangki air" loading="lazy">
+      <h3>🛢️ Tangki Air</h3>
+      <p>Servis mencuci, membaiki dan menggantikan tangki air.</p>
+      <div class="card-links"><a class="btn btn-biru" href="butiran-paip-bocor.html#tangki-air">Lihat Butiran →</a><a class="btn btn-putih" href="galeri.html">🖼️ Galeri</a></div>
+    </div>
+
+    <div class="card">
+      <img src="IMG_20250906_104523_451.jpg" alt="Kerja pembaikan bumbung bocor" loading="lazy">
+      <h3>🏠 Bumbung Bocor</h3>
+      <p>Pemeriksaan dan pembaikan kebocoran bumbung rumah.</p>
+      <div class="card-links"><a class="btn btn-biru" href="butiran-paip-bocor.html#bumbung-bocor">Lihat Butiran →</a><a class="btn btn-putih" href="galeri.html">🖼️ Galeri</a></div>
+    </div>
+
+    <div class="card">
+      <img src="IMG_20260528_114232_148.jpg" alt="Hasil siap kerja waterproofing slab" loading="lazy">
+      <h3>🧱 Waterproofing</h3>
       <p>Kerja kalis air untuk slab dan kawasan yang mengalami kebocoran.</p>
-      <a href="butiran-paip-bocor.html#waterproofing">
-  Lihat Butiran →
-</a>
-<a class="btn btn-secondary" href="galeri.html">
-  🖼️ Lihat Galeri →
-</a>
+      <div class="card-links"><a class="btn btn-biru" href="butiran-paip-bocor.html#waterproofing">Lihat Butiran →</a><a class="btn btn-putih" href="galeri.html">🖼️ Galeri</a></div>
     </div>
-      <div class="card">
-  <img src="IMG_20261022_125132_896.jpg"
-       alt="Kerja waterproofing lantai bilik air"
-       style="width:100%;border-radius:10px;margin-bottom:10px;">
 
-  <h3>Waterproofing Lantai Bilik Air</h3>
-  <p>Kerja kalis air dan pembaikan kebocoran lantai bilik air mengikut keadaan tapak.</p>
-
-  <a href="butiran-paip-bocor.html#waterproofing-bilik-air">
-    Lihat Butiran →
-  </a>
-  <a class="btn btn-secondary" href="galeri.html">
-    🖼️ Lihat Galeri →
-  </a>
-      </div>
-
-<div class="card">
-  <img src="IMG_20261107_110159_446.jpg"
-       alt="Kerja pembaikan saluran paip tersumbat"
-       style="width:100%;border-radius:10px;margin-bottom:10px;"
-       loading="lazy">
-
-  <h3>Saluran Paip Tersumbat</h3>
-  <p>Kerja membuka sumbatan pada saluran paip sinki, bilik air dan tandas.</p>
-
-  <a href="butiran-paip-bocor.html#paip-tersumbat">
-    Lihat Butiran →
-  </a>
-  <a class="btn btn-secondary" href="galeri.html">
-    🖼️ Lihat Galeri →
-  </a>
-</div>
-
+    <div class="card">
+      <img src="IMG_20261022_125132_896.jpg" alt="Kerja waterproofing lantai bilik air" loading="lazy">
+      <h3>🛁 Waterproofing Lantai Bilik Air</h3>
+      <p>Kerja kalis air dan pembaikan kebocoran lantai bilik air mengikut keadaan tapak.</p>
+      <div class="card-links"><a class="btn btn-biru" href="butiran-paip-bocor.html#waterproofing-bilik-air">Lihat Butiran →</a><a class="btn btn-putih" href="galeri.html">🖼️ Galeri</a></div>
+    </div>
   </div>
 </section>
 
+<!-- 4. KENAPA PILIH KAMI -->
+<section class="section-alt">
+  <div class="section">
+    <h2 class="section-title">Kenapa Pilih Kami?</h2>
+    <div class="grid">
+      <div class="card"><h3>🛠️ Pelbagai Kemahiran</h3><p>Servis paip dan pembaikan rumah dalam satu perkhidmatan.</p></div>
+      <div class="card"><h3>💬 Mudah Dihubungi</h3><p>Panggilan &amp; WhatsApp dijawab <strong>24 jam</strong>, setiap hari.</p></div>
+      <div class="card"><h3>📋 Sebut Harga Dahulu</h3><p>Bincang masalah dan dapatkan sebut harga melalui WhatsApp sebelum kerja dimulakan.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. GALERI -->
 <section class="section" id="galeri-kerja">
-  
   <h2 class="section-title">Galeri Kerja Sebenar</h2>
-  <p class="section-desc">
-    Lihat foto dan video hasil kerja kami.
+  <p class="section-desc">Foto dan video hasil kerja kami. Leret ke tepi untuk lihat lagi.</p>
+
+  <div class="slider">
+    <a href="galeri.html"><img src="IMG-20251205-WA0057.jpg" alt="Sebelum cuci tangki air" loading="lazy"></a>
+    <a href="galeri.html"><img src="IMG-20251206-WA0014.jpg" alt="Selepas cuci tangki air" loading="lazy"></a>
+    <a href="galeri.html#foto-penukaran-tangki-air"><img src="IMG_20250905_110316_589.jpg" alt="Kerja penukaran tangki air" loading="lazy"></a>
+    <a href="galeri.html#foto-tangki-air-2"><img src="IMG_20250905_112916_652.jpg" alt="Ruang bawah bumbung semasa penukaran tangki air" loading="lazy"></a>
+    <a href="galeri.html#foto-tangki-air-3"><img src="IMG_20250905_112919_455.jpg" alt="Bahagian bumbung yang dibuka semasa penukaran tangki air" loading="lazy"></a>
+    <a href="galeri.html#foto-perabung-1"><img src="IMG_20260318_100039_697.jpg" alt="Perabung bumbung selepas genting dibuka" loading="lazy"></a>
+    <a href="galeri.html#foto-perabung-2"><img src="IMG_20260318_101233_909.jpg" alt="Lapisan pelindung pada sambungan perabung" loading="lazy"></a>
+    <a href="galeri.html#foto-perabung-3"><img src="IMG_20260318_101542_491.jpg" alt="Genting perabung selepas dipasang semula" loading="lazy"></a>
+    <a href="galeri.html#foto-sri-petaling-1"><img src="IMG_20261112_113132_161.jpg" alt="Kerja membuka sambungan lama di Sri Petaling" loading="lazy"></a>
+    <a href="galeri.html#foto-sri-petaling-2"><img src="IMG_20261112_120940_088.jpg" alt="Pemasangan flashing logam di Sri Petaling" loading="lazy"></a>
+    <a href="galeri.html#foto-sri-petaling-3"><img src="IMG_20261112_151341_670.jpg" alt="Sambungan bumbung selepas pembaikan di Sri Petaling" loading="lazy"></a>
+    <a href="galeri.html"><img src="IMG_20261020_101006_836.jpg" alt="Sebelum waterproofing" loading="lazy"></a>
+    <a href="galeri.html"><img src="IMG_20261022_125132_896.jpg" alt="Kerja waterproofing" loading="lazy"></a>
+    <a href="galeri.html"><img src="IMG_20261024_153036_871.jpg" alt="Hasil pemasangan tiles" loading="lazy"></a>
+    <a href="galeri.html"><img src="IMG_20261107_110159_446.jpg" alt="Kerja pembaikan paip tersumbat" loading="lazy"></a>
+    <a href="galeri.html"><img src="IMG_20251028_150301_808.jpg" alt="Kerja baik pulih perabung bumbung di Klang" loading="lazy"></a>
+  </div>
+  <p class="center"><a class="btn btn-putih" href="galeri.html">🖼️ Lihat Semua Foto →</a></p>
+
+  <h3 class="center" style="color:#164e73;margin:30px 0 14px;">🎬 Video Kerja Sebenar</h3>
+  <div class="slider">
+    <a href="galeri.html#video-kerja"><div class="vid"><video muted playsinline preload="metadata"><source src="video-galeri-kompres.mp4#t=0.1" type="video/mp4"></video><span aria-hidden="true">▶</span></div><p>Tonton dalam galeri →</p></a>
+    <a href="galeri.html#video-paip-sinki"><div class="vid"><video muted playsinline preload="metadata"><source src="video-paip-sinki-dody.mp4#t=2" type="video/mp4"></video><span aria-hidden="true">▶</span></div><p>Pembaikan Paip Sinki →</p></a>
+    <a href="galeri.html#video-paip-bocor-bawah-bumbung"><div class="vid"><video muted playsinline preload="metadata"><source src="video-paip-bocor-bawah-bumbung.mp4#t=2" type="video/mp4"></video><span aria-hidden="true">▶</span></div><p>Paip Bocor di Bawah Bumbung →</p></a>
+    <a href="tonton-tangki-2721.html"><div class="vid"><video muted playsinline preload="metadata"><source src="2721.mp4#t=0.1" type="video/mp4"></video><span aria-hidden="true">▶</span></div><p>Penukaran Tangki Air – Video 1 →</p></a>
+    <a href="tonton-tangki-2724.html"><div class="vid"><video muted playsinline preload="metadata"><source src="2724.mp4#t=0.1" type="video/mp4"></video><span aria-hidden="true">▶</span></div><p>Penukaran Tangki Air – Video 2 →</p></a>
+    <a href="galeri.html#video-sri-petaling"><div class="vid"><video muted playsinline preload="metadata"><source src="VID_20261112_103256.mp4#t=0.1" type="video/mp4"></video><span aria-hidden="true">▶</span></div><p>Sambungan Bumbung – Sri Petaling →</p></a>
+  </div>
+  <p class="center">
+    <a class="btn btn-biru" href="galeri-video.html" style="margin:4px;">🎬 Galeri Video</a>
+    <a class="btn btn-biru" href="https://www.youtube.com/@DodyHariantoni" target="_blank" rel="noopener" style="margin:4px;">▶ YouTube</a>
+    <a class="btn btn-putih" href="perjalanan-kerja-harian.html" style="margin:4px;">📸 Perjalanan Kerja Harian</a>
   </p>
-  <p style="text-align:center; margin:20px 0;">
-  <a href="galeri.html" style="color:#164e73; font-size:20px; font-weight:bold; text-decoration:none;">
-    Lihat Galeri →
-  </a>
-  </p>
+</section>
 
-<div style="display:flex; gap:14px; overflow-x:auto; padding:5px 0 15px; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;">
-
-<a href="galeri.html" style="flex:0 0 78%; max-width:320px; scroll-snap-align:start; text-decoration:none; color:inherit;">
-<img src="IMG-20251205-WA0057.jpg" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:16px;" alt="Sebelum cuci tangki air">
-</a>
-
-<a href="galeri.html" style="flex:0 0 78%; max-width:320px; scroll-snap-align:start; text-decoration:none;">
-<img src="IMG-20251206-WA0014.jpg" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:16px;" alt="Selepas cuci tangki air">
-</a>
-<a href="galeri.html#foto-penukaran-tangki-air"
-   style="flex:0 0 78%;max-width:320px;scroll-snap-align:start;">
-  <img src="IMG_20250905_110316_589.jpg"
-       alt="Kerja penukaran tangki air"
-       loading="lazy"
-       style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;">
-</a><a href="galeri.html#foto-tangki-air-2" style="flex:0 0 78%;max-width:320px;scroll-snap-align:start;">
-  <img src="IMG_20250905_112916_652.jpg" alt="Ruang bawah bumbung semasa penukaran tangki air" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;">
-</a>
-
-<a href="galeri.html#foto-tangki-air-3" style="flex:0 0 78%;max-width:320px;scroll-snap-align:start;">
-  <img src="IMG_20250905_112919_455.jpg" alt="Bahagian bumbung yang dibuka semasa penukaran tangki air" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;">
-</a>
-
-<a href="galeri.html#foto-perabung-1" style="flex:0 0 78%;max-width:320px;scroll-snap-align:start;">
-  <img src="IMG_20260318_100039_697.jpg" alt="Perabung bumbung selepas genting dibuka" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;">
-</a>
-
-<a href="galeri.html#foto-perabung-2" style="flex:0 0 78%;max-width:320px;scroll-snap-align:start;">
-  <img src="IMG_20260318_101233_909.jpg" alt="Lapisan pelindung pada sambungan perabung" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;">
-</a>
-
-<a href="galeri.html#foto-perabung-3" style="flex:0 0 78%;max-width:320px;scroll-snap-align:start;">
-  <img src="IMG_20260318_101542_491.jpg" alt="Genting perabung selepas dipasang semula" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;">
-</a>
-
-<a href="galeri.html#foto-sri-petaling-1" style="flex:0 0 78%;max-width:320px;scroll-snap-align:start;">
-  <img src="IMG_20261112_113132_161.jpg" alt="Kerja membuka sambungan lama di Sri Petaling" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;">
-</a>
-
-<a href="galeri.html#foto-sri-petaling-2" style="flex:0 0 78%;max-width:320px;scroll-snap-align:start;">
-  <img src="IMG_20261112_120940_088.jpg" alt="Pemasangan flashing logam di Sri Petaling" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;">
-</a>
-
-<a href="galeri.html#foto-sri-petaling-3" style="flex:0 0 78%;max-width:320px;scroll-snap-align:start;">
-  <img src="IMG_20261112_151341_670.jpg" alt="Sambungan bumbung selepas pembaikan di Sri Petaling" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;">
-</a>
-<a href="galeri.html" style="flex:0 0 78%; max-width:320px; scroll-snap-align:start; text-decoration:none;">
-<img src="IMG_20261020_101006_836.jpg" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:16px;" alt="Sebelum waterproofing">
-</a>
-
-<a href="galeri.html" style="flex:0 0 78%; max-width:320px; scroll-snap-align:start; text-decoration:none;">
-<img src="IMG_20261022_125132_896.jpg" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:16px;" alt="Kerja waterproofing">
-</a>
-
-<a href="galeri.html" style="flex:0 0 78%; max-width:320px; scroll-snap-align:start; text-decoration:none;">
-<img src="IMG_20261024_153036_871.jpg" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:16px;" alt="Hasil pemasangan tiles">
-</a>
-<a href="galeri.html"
-   style="flex:0 0 78%;max-width:320px;scroll-snap-align:start;">
-  <img src="IMG_20261107_110159_446.jpg"
-       alt="Kerja pembaikan paip tersumbat"
-       loading="lazy"
-       style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;">
-</a><a href="galeri.html"
-   style="flex:0 0 78%;max-width:320px;scroll-snap-align:start;">
-  <img src="IMG_20251028_150301_808.jpg"
-       alt="Kerja baik pulih perabung bumbung di Klang"
-       loading="lazy"
-       style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;">
-</a>
-</div><h3 style="text-align:center;color:#164e73;margin:30px 0 16px;">
-  Video Kerja Sebenar
-</h3>
-<p style="text-align:center;margin:0 0 16px;">
-  <a href="galeri-video.html"
-     style="display:inline-block;padding:12px 16px;background:#164e78;color:white;text-decoration:none;border-radius:8px;font-weight:bold;">
-    Buka Galeri Video Plumber dan Roofing
-  </a>
-  <a href="https://www.youtube.com/@DodyHariantoni"
-     style="display:inline-block;margin:4px;padding:12px 16px;background:#164e78;color:white;text-decoration:none;border-radius:8px;font-weight:bold;">
-    Tonton di YouTube
-  </a>
-</p>
-<div style="display:flex;gap:14px;overflow-x:auto;padding:0 0 16px;">
-
-  <a href="galeri.html#video-kerja"
-     aria-label="Tonton video kerja dalam galeri"
-     style="flex:0 0 78%;max-width:320px;display:block;
-            text-decoration:none;color:#164e73;">
-
-    <div style="position:relative;border-radius:16px;
-                overflow:hidden;background:#153b50;">
-
-      <video muted playsinline preload="metadata"
-             style="display:block;width:100%;aspect-ratio:4/3;
-                    object-fit:cover;pointer-events:none;">
-        <source src="video-galeri-kompres.mp4#t=0.1"
-                type="video/mp4">
-      </video>
-
-      <span style="position:absolute;inset:0;display:flex;
-                   align-items:center;justify-content:center;
-                   color:white;font-size:48px;
-                   background:rgba(0,0,0,0.15);">▶</span>
+<!-- 6. KAWASAN -->
+<section class="section-alt" id="kawasan">
+  <div class="section">
+    <h2 class="section-title">Kawasan Perkhidmatan Kami</h2>
+    <p class="section-desc">Pilih kawasan anda untuk maklumat servis plumber dan tukang bumbung berdekatan.</p>
+    <div class="kawasan-grid">
+      <a href="plumber-gombak.html">Plumber Gombak</a>
+      <a href="plumber-setapak.html">Plumber Setapak &amp; Wangsa Maju</a>
+      <a href="plumber-taman-melawati.html">Plumber Melawati, UK Perdana &amp; Keramat</a>
+      <a href="plumber-ampang.html">Plumber Ampang</a>
+      <a href="plumber-cheras.html">Plumber Cheras &amp; Tukang Bumbung</a>
+      <a href="plumber-selayang-kepong.html">Plumber Selayang &amp; Kepong</a>
+      <a href="plumber-damansara-damai-sungai-buloh.html">Plumber Damansara Damai &amp; Sungai Buloh</a>
+      <a href="plumber-subang-jaya-usj.html">Plumber Subang Jaya &amp; USJ</a>
+      <a href="plumber-denai-alam-elmina-saujana-utama.html">Plumber Denai Alam, Elmina &amp; Saujana Utama</a>
+      <a href="plumber-shah-alam-klang.html">Plumber Shah Alam &amp; Klang</a>
+      <a href="plumber-sri-petaling.html">Plumber Sri Petaling</a>
+      <a href="plumber-bukit-jalil.html">Plumber Bukit Jalil</a>
+      <a href="plumber-puchong.html">Plumber Puchong</a>
+      <a href="plumber-petaling-jaya.html">Plumber PJ (Petaling Jaya)</a>
+      <a href="plumber-rawang.html" style="grid-column:1/-1;">Plumber Rawang &amp; Taman Anggun</a>
     </div>
+  </div>
+</section>
 
-    <p style="text-align:center;margin:12px 0;font-weight:bold;">
-      Tonton dalam galeri →
+<!-- 7. HARGA (tiada senarai harga — terus ke WhatsApp) -->
+<section class="section" id="harga">
+  <h2 class="section-title">Harga &amp; Sebut Harga</h2>
+  <div class="harga-box">
+    <p><strong>Setiap kerja berbeza.</strong> Harga bergantung pada punca masalah, bahan, akses ke tempat kerja dan lokasi rumah anda. Sebab itu kami beri sebut harga terus kepada anda melalui WhatsApp — tiada caj tersembunyi.</p>
+
+    <p class="center" style="margin:18px 0;">
+      <a class="btn btn-wa" style="font-size:17px;padding:15px 24px;" href="https://wa.me/601121290194?text=Salam%2C%20saya%20nak%20tanya%20harga%20servis.%0AMasalah%3A%20%0ALokasi%3A%20" target="_blank" rel="noopener">💬 WhatsApp Owner untuk Harga</a>
     </p>
-  </a>
-<a href="galeri.html#video-paip-sinki"
-   aria-label="Tonton video pembaikan paip sinki"
-   style="flex:0 0 78%;max-width:320px;display:block;
-          text-decoration:none;color:#164e73;">
 
-  <div style="position:relative;border-radius:16px;
-              overflow:hidden;background:#153b50;">
+    <h3>Cara dapatkan sebut harga</h3>
+    <ol>
+      <li>WhatsApp kami dan terangkan masalah anda.</li>
+      <li>Sertakan gambar atau video masalah jika boleh.</li>
+      <li>Nyatakan nama kawasan rumah anda.</li>
+      <li>Kami balas dengan sebut harga bertulis, atau cadangkan lawatan pemeriksaan jika perlu.</li>
+    </ol>
 
-    <video muted playsinline preload="metadata"
-           style="display:block;width:100%;aspect-ratio:4/3;
-                  object-fit:cover;pointer-events:none;">
-      <source src="video-paip-sinki-dody.mp4#t=2"
-              type="video/mp4">
-    </video>
+    <h3>Janji kami</h3>
+    <ul>
+      <li>Sebut harga diberi melalui WhatsApp <strong>sebelum</strong> kerja bermula.</li>
+      <li>Apa yang dipersetujui, itulah yang anda bayar.</li>
+      <li>Anda bebas menolak sebut harga tanpa paksaan.</li>
+    </ul>
 
-    <span style="position:absolute;inset:0;display:flex;
-                 align-items:center;justify-content:center;
-                 color:white;font-size:48px;
-                 background:rgba(0,0,0,0.15);">▶</span>
-  </div>
-
-  <p style="text-align:center;margin:12px 0;font-weight:bold;">
-    Pembaikan Paip Sinki →
-  </p></a><a href="galeri.html#video-paip-bocor-bawah-bumbung"
-   aria-label="Tonton video pembaikan paip bocor di bawah bumbung"
-   style="flex:0 0 78%;max-width:320px;display:block;
-          text-decoration:none;color:#164e73;">
-
-  <div style="position:relative;border-radius:16px;
-              overflow:hidden;background:#153b50;">
-
-    <video muted playsinline preload="metadata"
-           style="display:block;width:100%;aspect-ratio:4/3;
-                  object-fit:cover;pointer-events:none;">
-      <source src="video-paip-bocor-bawah-bumbung.mp4#t=2"
-              type="video/mp4">
-    </video>
-
-    <span aria-hidden="true"
-          style="position:absolute;inset:0;display:flex;
-                 align-items:center;justify-content:center;
-                 color:white;font-size:48px;
-                 background:rgba(0,0,0,0.15);">▶</span>
-  </div>
-
-  <p style="text-align:center;margin:12px 0;font-weight:bold;">
-    Pembaikan Paip Bocor di Bawah Bumbung →
-  </p>
-  </a><a href="tonton-tangki-2721.html"
-   style="flex:0 0 78%;max-width:320px;display:block;text-decoration:none;color:#164e73;">
-  <div style="position:relative;border-radius:16px;overflow:hidden;background:#153b50;">
-<video muted playsinline preload="metadata"
-       style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;pointer-events:none;">
-  <source src="2721.mp4#t=0.1" type="video/mp4">
-</video>
-    <span aria-hidden="true"
-          style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:white;font-size:48px;background:rgba(0,0,0,0.15);">▶</span>
-  </div>
-  <p style="text-align:center;margin:12px 0;font-weight:bold;">
-    Penukaran Tangki Air – Video 1 →
-  </p>
-</a>
-
-<a href="tonton-tangki-2724.html"
-   style="flex:0 0 78%;max-width:320px;display:block;text-decoration:none;color:#164e73;">
-  <div style="position:relative;border-radius:16px;overflow:hidden;background:#153b50;">
-<video muted playsinline preload="metadata"
-       style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;pointer-events:none;">
-  <source src="2724.mp4#t=0.1" type="video/mp4">
-</video>
-    <span aria-hidden="true"
-          style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:white;font-size:48px;background:rgba(0,0,0,0.15);">▶</span>
-  </div>
-  <p style="text-align:center;margin:12px 0;font-weight:bold;">
-    Penukaran Tangki Air – Video 2 →
-  </p>
-</a>
-<a href="galeri.html#video-sri-petaling"
-   style="flex:0 0 78%;max-width:320px;display:block;text-decoration:none;color:#164e78;">
-  <div style="position:relative;border-radius:16px;overflow:hidden;background:#153b50;">
-    <video muted playsinline preload="metadata"
-      style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;pointer-events:none;">
-      <source src="VID_20261112_103256.mp4#t=0.1" type="video/mp4">
-    </video>
-    <span aria-hidden="true"
-      style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:white;font-size:40px;background:#0003;">
-      ▶
-    </span>
-  </div>
-  <p style="text-align:center;margin:12px 0;font-weight:bold;">
-    Pembaikan Sambungan Bumbung – Sri Petaling →
-  </p>
-</a>
-
-</div>
-</section>
-
-<section class="section">
-
-  <h2 class="section-title">Kenapa Pilih Kami?</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>🛠️ Pelbagai Kemahiran</h3>
-      <p>Servis paip dan pembaikan rumah dalam satu perkhidmatan.</p>
+    <h3>Kawasan tanpa caj transport</h3>
+    <p>Percuma caj pengangkutan dalam radius 10 km dari Kg Klang Gates Baru:</p>
+    <div class="chip-list">
+      <span>Kg Klang Gates Baru</span><span>Taman Melawati</span><span>Wangsa Melawati</span><span>Wangsa Maju</span><span>Taman Melati</span><span>Desa Melawati</span><span>Ukay Perdana</span><span>Kampung Pasir</span><span>Gombak Setia</span><span>Taman Bunga Raya</span>
     </div>
+    <p>Kawasan luar radius ini dikenakan caj pengangkutan ikut jarak — kami maklumkan dahulu sebelum datang.</p>
 
-    <div class="card">
-      <h3>💬 Mudah Dihubungi</h3>
-      <p>Panggilan &amp; WhatsApp dijawab <strong>24 jam</strong>, setiap hari.</p>
-    </div>
-
-    <div class="card">
-      <h3>📋 Sebut Harga</h3>
-      <p>Bincangkan masalah dan dapatkan anggaran harga sebelum kerja dimulakan.</p>
-    </div>
-
+    <h3>Soalan Lazim</h3>
+    <details class="faq-item">
+      <summary>Berapa harga servis?</summary>
+      <p>Harga bergantung pada jenis kerja dan keadaan sebenar. Sila WhatsApp owner terus dengan gambar masalah dan lokasi untuk sebut harga yang tepat.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Boleh dapat sebut harga melalui WhatsApp?</summary>
+      <p>Boleh. Hantar gambar atau video, nama kawasan dan penerangan ringkas. Untuk kebocoran tersembunyi atau kerja besar, kami mungkin cadangkan lawatan pemeriksaan dahulu.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Adakah saya wajib teruskan kerja selepas terima sebut harga?</summary>
+      <p>Tidak. Kami hanya mulakan kerja selepas anda bersetuju dengan harga dan skop kerja.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Kawasan mana yang tiada caj pengangkutan?</summary>
+      <p>Dalam radius 10 km dari Kg Klang Gates Baru. Luar kawasan ini, caj dikira ikut jarak dan dimaklumkan sebelum lawatan.</p>
+    </details>
   </div>
 </section>
 
+<!-- 8. CARA TEMPAH + BORANG -->
+<section class="section-alt" id="booking">
+  <div class="section">
+    <h2 class="section-title">📅 Tempahan Servis</h2>
+    <p class="section-desc">4 langkah mudah. Isi borang di bawah — permintaan akan dihantar terus ke WhatsApp kami untuk pengesahan.</p>
+
+    <div class="langkah" id="panduan" style="margin-bottom:22px;">
+      <div><h3>1. Pilih servis</h3><p>Paip bocor, sinki tersumbat, tandas, tangki air, bumbung bocor atau waterproofing.</p></div>
+      <div><h3>2. Terangkan masalah</h3><p>Nyatakan masalah dengan jelas dan kawasan kerja.</p></div>
+      <div><h3>3. Terima sebut harga</h3><p>Kami bincang harga melalui WhatsApp sebelum kerja dimulakan.</p></div>
+      <div><h3>4. Sahkan tarikh</h3><p>Kami hubungi anda untuk sahkan tarikh dan masa lawatan.</p></div>
+    </div>
+
+    <form class="booking" onsubmit="event.preventDefault(); const f=this; const msg='BOOKING PLUMBER KL DAN SELANGOR%0A%0ANama: '+encodeURIComponent(f.nama.value)+'%0ATarikh pilihan: '+encodeURIComponent(f.tarikh.value)+'%0AMasa pilihan: '+encodeURIComponent(f.masa.value)+'%0AJenis kerja: '+encodeURIComponent(f.kerja.value)+'%0AAlamat: '+encodeURIComponent(f.alamat.value); window.open('https://wa.me/601121290194?text='+msg,'_blank');">
+      <label>Nama pelanggan
+        <input name="nama" required>
+      </label>
+      <label>Tarikh pilihan
+        <input name="tarikh" type="date" required>
+      </label>
+      <label>Masa pilihan
+        <select name="masa" required>
+          <option value="">Pilih masa</option>
+          <option>9 pagi – 12 tengah hari</option>
+          <option>12 tengah hari – 3 petang</option>
+          <option>3 petang – 6 petang</option>
+        </select>
+      </label>
+      <label>Jenis kerja
+        <select name="kerja" required>
+          <option value="">Pilih servis</option>
+          <option>Paip bocor</option>
+          <option>Paip atau sinki tersumbat</option>
+          <option>Baiki tandas</option>
+          <option>Tangki air</option>
+          <option>Bumbung bocor</option>
+          <option>Waterproofing</option>
+          <option>Pembaikan rumah lain</option>
+        </select>
+      </label>
+      <label>Alamat tempat kerja
+        <textarea name="alamat" required rows="3"></textarea>
+      </label>
+      <button type="submit">Hantar Permintaan Tempahan</button>
+    </form>
+  </div>
+</section>
+
+<!-- 9. ULASAN -->
+<section class="section" id="ulasan">
+  <div class="ulasan-box">
+    <h2 class="section-title">⭐ Ulasan Pelanggan</h2>
+    <p class="center">Kami amat menghargai maklum balas anda. Kongsikan pengalaman anda menggunakan servis kami di Google.</p>
+    <a href="https://maps.app.goo.gl/5hBypRCG4m3eDnX8A?g_st=ac" target="_blank" rel="noopener" style="border:1px solid #245778;color:#245778;">⭐ Baca Ulasan di Google</a>
+    <a href="https://g.page/r/CS5GuwHBZ1pTEBI/review" target="_blank" rel="noopener" style="background:#fff1c7;color:#744515;">☆ Tulis Ulasan Google</a>
+    <a href="https://maps.app.goo.gl/5hBypRCG4m3eDnX8A" target="_blank" rel="noopener" style="background:#16874b;color:#fff;">📍 Lokasi di Google Maps</a>
+  </div>
+</section>
+
+<!-- 10. HUBUNGI -->
 <section class="contact" id="hubungi">
-
-  <h2>Ada Masalah Paip atau Rumah?</h2>
-
+  <h2>Ada Masalah Paip atau Bumbung?</h2>
   <p>Hubungi kami untuk pertanyaan dan sebut harga.</p>
-
   <p>🕗 <strong>Waktu kerja:</strong> 8 pagi – 10 malam, setiap hari<br>
      📞 <strong>Panggilan &amp; WhatsApp:</strong> dijawab 24 jam</p>
+  <a class="btn" href="https://wa.me/601121290194?text=Salam%2C%20saya%20ingin%20bertanya%20tentang%20servis%20plumber." target="_blank" rel="noopener">💬 HUBUNGI MELALUI WHATSAPP</a>
 
-  <a class="btn"
-     href="https://wa.me/601121290194?text=Salam%2C%20saya%20ingin%20bertanya%20tentang%20servis%20plumber."
-     target="_blank">
-    💬 HUBUNGI MELALUI WHATSAPP
-  </a>
-
+  <div class="tiktok-links">
+    <a href="https://www.tiktok.com/@plumberklselangor" target="_blank" rel="noopener">🎵 TikTok @plumberklselangor</a>
+    <a href="https://www.tiktok.com/@tukangrumah.69" target="_blank" rel="noopener">🎵 TikTok @tukangrumah.69</a>
+  </div>
 </section>
- <!--<div style="padding:20px; text-align:center;">
-  <a href="https://www.facebook.com/share/1CBWvdi6J2/" target="_blank" style="display:inline-block; padding:12px 20px; background:#1877F2; color:white; text-decoration:none; border-radius:8px; font-weight:bold;">
-    Facebook Dody Plumber Roofing
-  </a>
- </div>-->
- <div style="padding:10px; text-align:center;">
-  <a href="https://www.tiktok.com/@plumberklselangor" target="_blank" style="display:inline-block; padding:12px 20px; margin:5px; background:#111111; color:white; text-decoration:none; border-radius:8px; font-weight:bold;">
-    TikTok @plumberklselangor
-  </a>
-  <a href="https://www.tiktok.com/@tukangrumah.69" target="_blank" style="display:inline-block; padding:12px 20px; margin:5px; background:#111111; color:white; text-decoration:none; border-radius:8px; font-weight:bold;">
-    TikTok @tukangrumah.69
-  </a>
-</div> 
+
 <footer>
-  <p>© 2026 Plumber KL & Selangor</p>
-  <p>Servis Paip & Pembaikan Rumah</p>
+  <p>© 2026 Plumber KL &amp; Selangor — Servis Paip &amp; Pembaikan Rumah</p>
+  <p><a href="privacy-policy.html">Dasar Privasi</a></p>
 </footer>
 
-
-
-
-
-<section id="panduan" style="padding:30px 16px; background:#ffffff; color:#26384a;">
-  <h2 style="color:#164e73; font-size:28px;">📘 Panduan Pelanggan</h2>
-  <p>Sila baca panduan ringkas sebelum menempah servis PLUMBER KL &amp; SELANGOR.</p>
-
-  <div style="margin-bottom:18px;">
-    <h3>1. Pilih jenis servis</h3>
-    <p>Pilih servis yang diperlukan seperti paip bocor, sinki tersumbat, tandas, tangki air, bumbung bocor atau waterproofing.</p>
-  </div>
-
-  <div style="margin-bottom:18px;">
-    <h3>2. Berikan maklumat kerja</h3>
-    <p>Nyatakan masalah dengan jelas dan berikan alamat kawasan kerja supaya kami boleh membuat semakan.</p>
-  </div>
-
-  <div style="margin-bottom:18px;">
-    <h3>3. Semakan harga</h3>
-    <p>Harga bergantung pada jenis kerosakan, bahan dan skop kerja. Harga akan dibincangkan sebelum kerja dimulakan.</p>
-  </div>
-
-  <div style="margin-bottom:18px;">
-    <h3>4. Buat tempahan</h3>
-    <p>Pilih tarikh dan masa yang dikehendaki melalui borang tempahan. Kami akan menghubungi anda untuk pengesahan.</p>
-  </div>
-
-  <a href="#booking" style="display:inline-block; background:#164e73; color:white; padding:12px 20px; border-radius:8px; text-decoration:none; font-weight:bold;">Buat Tempahan</a>
-</section>
- <section id="booking" style="padding:24px 16px; margin:20px 0; background:#f3f8ff; border-radius:14px; color:#222;">
-<h2 style="text-align:center;">📅 Tempahan Servis</h2>
-<p style="text-align:center;">Pilih tarikh dan masa yang sesuai, kemudian isi butiran kerja dan alamat lokasi. Hantar permintaan melalui WhatsApp. Kami akan membalas untuk mengesahkan tarikh dan masa lawatan.</p>
-  <form onsubmit="event.preventDefault(); const f=this; const msg='BOOKING PLUMBER KL DAN SELANGOR%0A%0ANama: '+encodeURIComponent(f.nama.value)+'%0ATarikh pilihan: '+encodeURIComponent(f.tarikh.value)+'%0AMasa pilihan: '+encodeURIComponent(f.masa.value)+'%0AJenis kerja: '+encodeURIComponent(f.kerja.value)+'%0AAlamat: '+encodeURIComponent(f.alamat.value); window.open('https://wa.me/601121290194?text='+msg,'_blank');" style="display:grid; gap:12px;">
-    <label>Nama pelanggan
-      <input name="nama" required style="display:block;width:100%;padding:12px;margin-top:5px;box-sizing:border-box;">
-    </label>
-
-    <label>Tarikh pilihan
-      <input name="tarikh" type="date" required style="display:block;width:100%;padding:12px;margin-top:5px;box-sizing:border-box;">
-    </label>
-
-    <label>Masa pilihan
-      <select name="masa" required style="display:block;width:100%;padding:12px;margin-top:5px;box-sizing:border-box;">
-        <option value="">Pilih masa</option>
-        <option>9 pagi – 12 tengah hari</option>
-        <option>12 tengah hari – 3 petang</option>
-        <option>3 petang – 6 petang</option>
-      </select>
-    </label>
-
-    <label>Jenis kerja
-      <select name="kerja" required style="display:block;width:100%;padding:12px;margin-top:5px;box-sizing:border-box;">
-        <option value="">Pilih servis</option>
-        <option>Paip bocor</option>
-        <option>Paip atau sinki tersumbat</option>
-        <option>Baiki tandas</option>
-        <option>Tangki air</option>
-        <option>Bumbung bocor</option>
-        <option>Waterproofing</option>
-        <option>Pembaikan rumah lain</option>
-      </select>
-    </label>
-
-    <label>Alamat tempat kerja
-      <textarea name="alamat" required rows="3" style="display:block;width:100%;padding:12px;margin-top:5px;box-sizing:border-box;"></textarea>
-    </label>
-
-    <button type="submit" style="padding:14px;background:#16834a;color:white;border:0;border-radius:8px;font-weight:bold;font-size:16px;">Hantar Permintaan Tempahan</button>
-  </form>
-</section>  
-
-
-<section id="ulasan" style="padding:30px 16px; background:#f0f8ff; color:#26384a;">
-  <div style="max-width:1100px; margin:auto; background:white; padding:24px; border-radius:22px; box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-
-    <h2 style="color:#164e73; margin-top:0;">⭐ Ulasan Pelanggan</h2>
-
-    <p>Kami amat menghargai maklum balas anda. Kongsikan pengalaman anda menggunakan servis kami di Google.</p>
-
-    <h3 style="color:#245778;">PLUMBER &amp; TUKANG BUMBUNG</h3>
-
-    <p>📍 Kawasan servis: Kuala Lumpur, Selangor dan kawasan sekitar.</p>
-
-    <p>🔧 Servis: Paip bocor, sinki tersumbat, tandas, tangki air, bumbung bocor, waterproofing dan pembaikan rumah.</p>
-
-    <a href="https://wa.me/601121290194" target="_blank" style="display:block; text-align:center; background:#20bd5a; color:white; padding:15px; border-radius:16px; text-decoration:none; font-weight:bold; margin:18px 0;">
-      ☎ WhatsApp Kami
-    </a>
-
-    <a href="https://maps.app.goo.gl/5hBypRCG4m3eDnX8A?g_st=ac" target="_blank" style="display:block; text-align:center; border:1px solid #245778; color:#245778; padding:15px; border-radius:16px; text-decoration:none; font-weight:bold; margin:12px 0;">
-      📍 Lihat Profil Google Business
-    </a>
-
-    <a href="https://maps.app.goo.gl/5hBypRCG4m3eDnX8A?g_st=ac" target="_blank" style="display:block; text-align:center; border:1px solid #245778; color:#245778; padding:15px; border-radius:16px; text-decoration:none; font-weight:bold; margin:12px 0;">
-      ⭐ Baca Semua Ulasan di Google
-    </a>
-
-    <a href="https://g.page/r/CS5GuwHBZ1pTEBI/review" target="_blank" style="display:block; text-align:center; background:#fff1c7; color:#744515; padding:15px; border-radius:16px; text-decoration:none; font-weight:bold; margin:12px 0;">
-      ☆ Tulis Ulasan Google
-    </a>
-
-  </div>
-</section>
-
-<style>
-/* BAHAGIAN TANYA HARGA */
-#harga {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 16px;
-  color: #172033;
-  font-family: inherit;
-}
-#harga .harga-card {
-  background: #fff;
-  border: 2px solid #8bc5ed;
-  border-radius: 22px;
-  padding: 22px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.06);
-}
-#harga h2, #harga h3 {
-  color: #14243d;
-  margin-top: 0;
-}
-#harga h2 { font-size: 26px; }
-#harga h3 { font-size: 21px; }
-#harga p, #harga li {
-  font-size: 16px;
-  line-height: 1.8;
-}
-#harga .harga-list {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 12px;
-}
-#harga .harga-item {
-  background: #eaf5fd;
-  border: 1px solid #a8d1eb;
-  border-radius: 15px;
-  padding: 16px;
-  font-weight: bold;
-  text-align: center;
-}
-#harga .kawasan-item {
-  background: #edf6fc;
-  border: 1px solid #acd2e9;
-  border-radius: 15px;
-  padding: 12px 16px;
-  margin: 10px 0;
-  font-weight: bold;
-}
-#harga .harga-button {
-  display: inline-block;
-  background: #0785ed;
-  color: white;
-  padding: 13px 18px;
-  border-radius: 14px;
-  text-decoration: none;
-  font-weight: bold;
-  margin: 8px 5px 0 0;
-}
-#harga .faq-item {
-  background: #eff8fe;
-  border: 1px solid #acd2e9;
-  border-radius: 16px;
-  padding: 16px;
-  margin: 12px 0;
-}
-#harga .faq-item summary {
-  font-weight: bold;
-  cursor: pointer;
-  line-height: 1.6;
-}
-#harga .faq-item p { margin-bottom: 8px; }
-@media(max-width:480px) {
-  #harga { padding: 10px; }
-  #harga .harga-card { padding: 17px; }
-  #harga .harga-list { gap: 8px; }
-  #harga .harga-item { padding: 13px 5px; }
-}
-</style>
-
-<section id="harga">
-
-<div class="harga-card">
-<h2>Harga &amp; Sebut Harga</h2>
-<p><strong>Kami tidak menyembunyikan harga.</strong> Setiap pelanggan menerima sebut harga bertulis melalui WhatsApp sebelum kerja bermula — tiada caj tersembunyi, tiada kejutan bil.</p>
-</div>
-
-<div class="harga-card">
-<h3>Kawasan tanpa caj transport</h3>
-<p>Percuma caj pengangkutan untuk kawasan dalam radius 10 km dari Kg Klang Gates Baru.</p>
-<div class="kawasan-item">Kg Klang Gates Baru</div>
-<div class="kawasan-item">Taman Melawati &amp; Wangsa Melawati</div>
-<div class="kawasan-item">Wangsa Maju</div>
-<div class="kawasan-item">Taman Melati</div>
-<div class="kawasan-item">Desa Melawati</div>
-<div class="kawasan-item">Ukay Perdana</div>
-<div class="kawasan-item">Kampung Pasir</div>
-<div class="kawasan-item">Gombak Setia</div>
-<div class="kawasan-item">Taman Bunga Raya</div>
-<p>Kawasan di luar radius 10 km akan dikenakan caj pengangkutan mengikut jarak. Sila WhatsApp alamat penuh untuk pengesahan.</p>
-</div>
-
-<div class="harga-card">
-<h3>Julat harga baiki sumbat</h3>
-<p>Kerja baiki sinki, tandas atau longkang tersumbat mempunyai empat julat harga:</p>
-<div class="harga-list">
-<div class="harga-item">RM250</div>
-<div class="harga-item">RM350</div>
-<div class="harga-item">RM450</div>
-<div class="harga-item">RM550</div>
-</div>
-<p>Harga bergantung pada punca dan tahap sumbatan serta akses ke titik kerja. Harga tepat disahkan melalui WhatsApp sebelum kerja bermula.</p>
-</div>
-
-<div class="harga-card">
-<h3>Julat harga cuci tangki air</h3>
-<p>Cuci tangki air: <strong>RM250 hingga RM450 untuk satu tangki.</strong></p>
-<div class="kawasan-item">Saiz tangki — tangki lebih besar mengambil lebih masa dan bahan.</div>
-<div class="kawasan-item">Jarak kawasan rumah anda.</div>
-<div class="kawasan-item">Letak tangki — atas slab bumbung atau di dalam ceiling/ruang bumbung.</div>
-<div class="kawasan-item">Dua tangki atau lebih — kami boleh berikan diskaun.</div>
-<p><strong>Contoh diskaun:</strong> Satu tangki RM250, dua tangki RM400.</p>
-<p>Harga tepat disahkan melalui WhatsApp sebelum kerja bermula.</p>
-</div>
-
-<div class="harga-card">
-<h3>Servis yang kami tawarkan</h3>
-<p>Harga setiap servis bergantung pada keadaan sebenar. WhatsApp kami untuk sebut harga kes anda.</p>
-<div class="kawasan-item">Baiki sinki, tandas &amp; longkang tersumbat — RM250–RM550</div>
-<div class="kawasan-item">Baiki paip bocor &amp; pecah</div>
-<div class="kawasan-item">Cuci &amp; baiki tangki air — RM250–RM450 seunit</div>
-<div class="kawasan-item">Pasang &amp; baiki water pump</div>
-<div class="kawasan-item">Waterproofing bilik air &amp; slab bumbung</div>
-<div class="kawasan-item">Baiki bumbung bocor</div>
-<div class="kawasan-item">Pasang tile, toilet bowl, sinki &amp; water heater</div>
-<div class="kawasan-item">Baiki tekanan air perlahan</div>
-<a class="harga-button" href="https://wa.me/601121290194">WhatsApp untuk sebut harga percuma</a>
-</div>
-
-<div class="harga-card">
-<h3>Bagaimana kami menetapkan harga</h3>
-<p><strong>Setiap kerja berbeza</strong> — keadaan paip, akses dan punca sebenar masalah tidak sama antara satu rumah dengan rumah lain.</p>
-<p>Untuk kerja yang jelas, kami boleh berikan harga melalui WhatsApp berdasarkan maklumat, gambar atau video.</p>
-<p>Untuk kebocoran tersembunyi, tekanan air perlahan atau kerja besar, pemeriksaan di lokasi mungkin diperlukan.</p>
-</div>
-
-<div class="harga-card">
-<h3>Janji sebut harga kami</h3>
-<ul>
-<li>Sebut harga diberikan secara bertulis melalui WhatsApp sebelum kerja bermula.</li>
-<li><strong>Tiada caj tersembunyi</strong> — apa yang dipersetujui itulah yang anda bayar.</li>
-<li>Anda bebas menolak sebut harga tanpa sebarang paksaan.</li>
-<li>Jika pemeriksaan di lokasi diperlukan, caj transport dimaklumkan lebih awal.</li>
-</ul>
-</div>
-
-<div class="harga-card">
-<h3>Cara dapatkan sebut harga</h3>
-<ol>
-<li>WhatsApp kami dan terangkan masalah anda.</li>
-<li>Sertakan gambar atau video masalah jika boleh.</li>
-<li>Nyatakan kawasan rumah anda.</li>
-<li>Kami balas dengan sebut harga bertulis atau cadangan lawatan pemeriksaan jika perlu.</li>
-</ol>
-<a class="harga-button" href="https://wa.me/601121290194">WhatsApp Sekarang</a>
-</div>
-
-<div class="harga-card">
-<h2>Soalan Lazim</h2>
-
-<details class="faq-item">
-  <summary>Kenapa harga berbeza mengikut kerja?</summary>
-  <p>Harga bergantung pada punca kerosakan, bahan yang diperlukan dan skop kerja. Kami akan terangkan harga sebelum kerja dimulakan.</p>
-</details>
-
-<details class="faq-item">
-  <summary>Boleh dapat anggaran harga melalui WhatsApp?</summary>
-  <p>Boleh. Hantar gambar atau video, nama kawasan dan penerangan ringkas tentang masalah anda. Jika perlu, kami akan cadangkan lawatan pemeriksaan sebelum memberi sebut harga.</p>
-</details>
-
-<details class="faq-item">
-  <summary>Adakah saya wajib teruskan kerja selepas terima sebut harga?</summary>
-  <p>Anda boleh semak sebut harga dahulu. Kami hanya memulakan kerja selepas anda bersetuju dengan harga dan skop kerja.</p>
-</details>
-
-<details class="faq-item">
-  <summary>Kawasan mana yang tiada caj pengangkutan?</summary>
-  <p>Tiada caj pengangkutan dalam radius 10 km dari Kg Klang Gates Baru. Untuk lokasi di luar radius ini, caj pengangkutan dikira mengikut jarak.</p>
-  <p>Kami akan maklumkan caj pengangkutan dan caj pemeriksaan, jika berkenaan, sebelum lawatan.</p>
-</details>
-
-<details class="faq-item">
-<summary>Berapa harga baiki sinki, tandas atau longkang tersumbat?</summary>
-<p>Julat harga ialah RM250, RM350, RM450 atau RM550. Harga sebenar bergantung pada keadaan dan tahap sumbatan.</p>
-</details>
-
-<details class="faq-item">
-<summary>Berapa harga cuci tangki air?</summary>
-<p>RM250 hingga RM450 untuk satu tangki. Harga bergantung pada saiz, lokasi dan kedudukan tangki. Untuk dua tangki, contoh harga RM250 satu tangki, dua tangki RM400.</p>
-</details>
-
-</div>
-</section>
+<!-- CARIAN -->
 <script>
 (() => {
+  const WA_HARGA = 'https://wa.me/601121290194?text=Salam%2C%20saya%20nak%20tanya%20harga%20servis.%0AMasalah%3A%20%0ALokasi%3A%20';
   function pasangCarian() {
     const input = document.getElementById('carian-website');
     const hasil = document.getElementById('hasil-carian');
     if (!input || !hasil) return;
 
-    function kemaskan(teks) {
-      return teks.toLowerCase()
-        .replace(/\bsink\b/g, 'sinki')
-        .replace(/\bsebutharga\b/g, 'sebut harga')
-        .replace(/[^\p{L}\p{N}\s]/gu, ' ')
-        .replace(/\s+/g, ' ')
-        .trim();
-    }
+    const kemaskan = t => t.toLowerCase()
+      .replace(/\bsink\b/g, 'sinki')
+      .replace(/\bsebutharga\b/g, 'sebut harga')
+      .replace(/[^\p{L}\p{N}\s]/gu, ' ')
+      .replace(/\s+/g, ' ').trim();
 
     const senarai = [];
-
-    document.querySelectorAll(
-'#servis .card, #harga .harga-card, #harga details, #kawasan'
-    ).forEach((elemen) => {
-      const soalan = elemen.matches('details');
-
-      // Soalan diindeks satu per satu.
-      if (!soalan && elemen.querySelector('details')) return;
-
-      const tajuk = elemen.querySelector(
-        soalan ? 'summary' : 'h2, h3'
-      );
+    document.querySelectorAll('#servis .card, #harga details, #kawasan .kawasan-grid a').forEach(el => {
+      const soalan = el.matches('details');
+      const tajuk = soalan ? el.querySelector('summary') : (el.matches('a') ? el : el.querySelector('h3'));
       if (!tajuk) return;
-
-      const kategori = elemen.closest('#harga')
-        ? (soalan ? 'Soalan Lazim' : 'Harga & Sebut Harga')
-        : 'Perkhidmatan';
-
-      senarai.push({
-        elemen,
-        tajuk: tajuk.textContent.trim(),
-        kategori,
-        teks: kemaskan(
-          kategori + ' ' + elemen.textContent
-        )
-      });
+      const kategori = soalan ? 'Soalan Lazim' : (el.matches('a') ? 'Kawasan' : 'Perkhidmatan');
+      senarai.push({ el, tajuk: tajuk.textContent.trim(), kategori, teks: kemaskan(kategori + ' ' + el.textContent) });
     });
 
     input.addEventListener('input', () => {
@@ -1384,89 +561,44 @@ Kami membaiki paip dan bumbung bocor, mengatasi sinki dan tandas tersumbat, menc
       const carian = kemaskan(input.value);
       if (!carian) return;
 
-      const perkataan = carian.split(' ');
-      const jumpa = senarai.filter(item =>
-        perkataan.every(kata => item.teks.includes(kata))
-      );
+      // Tanya harga? Terus ke WhatsApp owner
+      if (/\b(harga|berapa|caj|kos|bayar|rm\d*)\b/.test(carian)) {
+        const p = document.createElement('p');
+        p.textContent = 'Untuk harga, sila WhatsApp owner terus dengan gambar masalah dan lokasi anda.';
+        const a = document.createElement('a');
+        a.href = WA_HARGA; a.target = '_blank'; a.rel = 'noopener';
+        a.className = 'btn btn-wa'; a.textContent = '💬 WhatsApp Owner untuk Harga';
+        hasil.append(p, a);
+        return;
+      }
 
+      const kata = carian.split(' ');
+      const jumpa = senarai.filter(i => kata.every(k => i.teks.includes(k)));
       const status = document.createElement('p');
-      status.textContent = jumpa.length
-        ? jumpa.length + ' hasil ditemui. Tekan untuk lihat.'
-        : 'Tiada hasil. Cuba kata seperti tangki, sinki atau harga.';
+      status.textContent = jumpa.length ? jumpa.length + ' hasil ditemui. Tekan untuk lihat.' : 'Tiada hasil. Cuba kata seperti tangki, sinki atau bumbung.';
       hasil.appendChild(status);
 
       jumpa.forEach(item => {
-        const butang = document.createElement('button');
-        butang.type = 'button';
-        butang.textContent = item.kategori + ' — ' + item.tajuk;
-        butang.style.cssText =
-          'display:block;width:100%;box-sizing:border-box;' +
-          'padding:14px;margin:8px 0;text-align:left;' +
-          'background:white;color:#154f7c;border:1px solid #aac4d5;' +
-          'border-radius:10px;font-size:16px;cursor:pointer;';
-
-        butang.addEventListener('click', () => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.textContent = item.kategori + ' — ' + item.tajuk;
+        b.addEventListener('click', () => {
           input.blur();
-
-          if (item.elemen.matches('details')) {
-            item.elemen.open = true;
-          }
-
-          let induk = item.elemen.parentElement;
-          while (induk) {
-            if (induk.matches('details')) induk.open = true;
-            induk = induk.parentElement;
-          }
-
-          requestAnimationFrame(() => {
-            let ruangAtas = 16;
-            document.querySelectorAll('header').forEach(header => {
-              const posisi = getComputedStyle(header).position;
-              if (posisi === 'fixed' || posisi === 'sticky') {
-                ruangAtas = Math.max(
-                  ruangAtas,
-                  header.getBoundingClientRect().height + 16
-                );
-              }
-            });
-
-            window.scrollTo({
-              top: Math.max(0,
-                window.scrollY +
-                item.elemen.getBoundingClientRect().top -
-                ruangAtas
-              ),
-              behavior: 'smooth'
-            });
-          });
+          if (item.el.matches('details')) item.el.open = true;
+          const h = document.querySelector('header').getBoundingClientRect().height + 16;
+          window.scrollTo({ top: Math.max(0, window.scrollY + item.el.getBoundingClientRect().top - h), behavior: 'smooth' });
         });
-
-        hasil.appendChild(butang);
+        hasil.appendChild(b);
       });
     });
   }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', pasangCarian);
-  } else {
-    pasangCarian();
-  }
+  document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', pasangCarian) : pasangCarian();
 })();
-                                     </script>
+</script>
 
 <!-- Butang WhatsApp terapung -->
-<style>
-.wa-terapung{position:fixed;right:16px;bottom:16px;z-index:9000;display:flex;align-items:center;gap:8px;background:#1fa855;color:#fff;font:700 15px/1 Arial,sans-serif;text-decoration:none;padding:13px 18px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.25);animation:wa-denyut 2.5s ease-in-out infinite}
-.wa-terapung:hover{background:#178a45}
-.wa-terapung:focus-visible{outline:3px solid #f5b400;outline-offset:3px}
-.wa-terapung svg{width:22px;height:22px;flex-shrink:0}
-@keyframes wa-denyut{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
-@media (prefers-reduced-motion:reduce){.wa-terapung{animation:none}}
-body{padding-bottom:72px}
-</style>
 <a class="wa-terapung" href="https://wa.me/601121290194?text=Salam%2C%20saya%20nak%20tanya%20tentang%20servis%20plumber.%20Lokasi%20saya%3A%20" target="_blank" rel="noopener" aria-label="WhatsApp Dody Plumber">
 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg>
 WhatsApp Kami</a>
 </body>
-
 </html>
